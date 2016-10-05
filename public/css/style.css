@@ -1,0 +1,73 @@
+body {
+	padding: 5px 25px;
+	margin-left: 50px;
+	margin-right: 50px;
+    color: black;
+    background-color: #F0F0F0;
+}
+
+.flash-message-success {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightgreen;
+    text-align: center;
+    padding: 5px;
+}
+
+.flash-message-error {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: yellow;
+    text-align: center;
+    padding: 5px;
+}
+
+.logo {
+    float: left;
+    padding: 5px 50px 5px 5px;
+}
+
+.shadow {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.indent {
+	padding-left: 25px;
+}
+
+.display_box {
+    background-color: lightgray;
+    border: 5px solid darkgray;
+    font-size: 120%;
+    padding: 25px 50px;
+    width: 600px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.copy_button {
+    position: absolute;
+    right: 125px;
+}
+
+.employ_active {
+    color: green;
+}
+
+.employ_term {
+    color: red;
+}
+
+.ui-datepicker {
+    background: #333;
+    border: 1px solid #555;
+    color: #EEE;
+}
+
+.ui-datepicker-header {
+    color: #606060;
+}
