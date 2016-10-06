@@ -11,18 +11,24 @@ class NHPSeeder extends Seeder {
 
   public function run()
   {
+  	$tables = [
+  		'checklists',
+  		'checklist_employee',
+  		'contacts',
+  		'employees',
+  		'files',
+  		'roles',
+  		'role_user',
+  		'users'
+  	];
 
-  	# Reset tables
   	# Disable FK constraints so that all rows can be deleted
 	DB::statement('SET FOREIGN_KEY_CHECKS=0');
-	DB::statement('TRUNCATE checklists');
-	DB::statement('TRUNCATE checklist_employee');
-	DB::statement('TRUNCATE contacts');
-	DB::statement('TRUNCATE employees');
-	DB::statement('TRUNCATE files');
-	DB::statement('TRUNCATE roles');
-	DB::statement('TRUNCATE role_user');
-	DB::statement('TRUNCATE users');
+
+	# Reset tables	
+	foreach ($tables as $table) {
+		DB::table($table)->truncate();
+	}
 
  	# Seed users
  	$user = User::create(array(
@@ -253,5 +259,7 @@ class NHPSeeder extends Seeder {
 		}
 	}
 
-  }
+	DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+  } 
 }
