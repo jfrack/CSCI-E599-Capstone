@@ -25,6 +25,8 @@ Route::get('/employee/reset/{id}', 'EmployeeController@getReset');
 Route::post('/employee/reset', 'EmployeeController@postReset');
 Route::get('/employee/delete/{id}', 'EmployeeController@getDelete');
 Route::post('/employee/delete/{id}', 'EmployeeController@postDelete');
+Route::get('/employee/forms/{id}', 'EmployeeController@getForms');
+Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
 
 # User controller
 Route::get('/user/login', 'UserController@getLogin');
