@@ -32,7 +32,9 @@
 					<td>
 						<a href="/employee/view/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
 						<a href="/employee/edit/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-						<a href="/employee/reset/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-user"> Reset Password</a>
+						<a href="/employee/reset/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-user"> Password</a>
+						<a href="/employee/forms/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-folder-open"> Forms</a>
+						<a href="/employee/checklists/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"> Checklists</a>
 						@if ($employee->user_id != 1)
 							<a href="/employee/delete/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 						@endif
