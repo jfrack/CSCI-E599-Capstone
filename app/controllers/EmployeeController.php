@@ -283,4 +283,30 @@ class EmployeeController extends BaseController {
             ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' has been deleted.');
     }
 
+    /*
+    * Display employee forms page
+    * GET: http://localhost/employee/forms/$id
+    */
+    public function getForms($id) {
+
+        $employee = Employee::where('id', '=', $id)->first();
+        $contact = Contact::where('employee_id', '=', $employee->id)->first();
+        return View::make('employee_forms')
+                ->with('employee', $employee)
+                ->with('contact', $contact);
+    }
+
+    /*
+    * Display employee checklists page
+    * GET: http://localhost/employee/checklists/$id
+    */
+    public function getChecklists($id) {
+
+        $employee = Employee::where('id', '=', $id)->first();
+        $contact = Contact::where('employee_id', '=', $employee->id)->first();
+        return View::make('employee_checklists')
+                ->with('employee', $employee)
+                ->with('contact', $contact);
+    }
+
 }
