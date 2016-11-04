@@ -35,21 +35,45 @@
 			<th class="info">Date Completed</th>
 			<tr>
 				<td>
-					<a href="/employee/view/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="/employee/edit/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="/employee/edit/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="/employee/delete/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 				</td>
 				<td>ERS Benefits Enrollment</td>
-				<td><div class="employ_active glyphicon glyphicon-ok-circle">completed</div></td>
+				<td><div class="employ_active glyphicon glyphicon-ok">completed</div></td>
 				<td>{{ BaseController::convertDateView($employee->start_date) }}</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+				</td>
+				<td>IRS W-4</td>
+				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
+				<td>n/a</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+				</td>
+				<td>Employee Handbook</td>
+				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
+				<td>n/a</td>
 			</tr>
 		</table>
 
 		<br>
+		<!--
 		{{ Form::hidden('id', $employee->id) }}
 	    {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
-		<a href="/" class="btn btn-warning">Cancel</a>
+	    -->
+		<a href="/" class="btn btn-primary">Back</a>
 	</div>
 
 {{ Form::close() }}	
