@@ -297,6 +297,25 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Save employee forms
+    * POST: http://localhost/employee/forms
+    */
+    public function postForms() {
+
+        try {
+            $employee = Employee::findOrFail(Input::get('id'));
+        }
+        catch(exception $e) {
+            return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_error', 'ERROR EC12: Could not save forms.');
+        }
+
+        # Return to dashboard with a user message
+        return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' forms have been saved.');
+    }
+
+    /*
     * Display employee checklists page
     * GET: http://localhost/employee/checklists/$id
     */
@@ -307,6 +326,25 @@ class EmployeeController extends BaseController {
         return View::make('employee_checklists')
                 ->with('employee', $employee)
                 ->with('contact', $contact);
+    }
+
+    /*
+    * Save employee checklists
+    * POST: http://localhost/employee/checklists
+    */
+    public function postChecklists() {
+
+        try {
+            $employee = Employee::findOrFail(Input::get('id'));
+        }
+        catch(exception $e) {
+            return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_error', 'ERROR EC13: Could not save checklists.');
+        }
+
+        # Return to dashboard with a user message
+        return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' checklists have been saved.');
     }
 
 }

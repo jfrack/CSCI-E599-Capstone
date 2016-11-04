@@ -26,7 +26,9 @@ Route::post('/employee/reset', 'EmployeeController@postReset');
 Route::get('/employee/delete/{id}', 'EmployeeController@getDelete');
 Route::post('/employee/delete/{id}', 'EmployeeController@postDelete');
 Route::get('/employee/forms/{id}', 'EmployeeController@getForms');
+Route::post('/employee/forms', 'EmployeeController@postForms');
 Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
+Route::post('/employee/checklists', 'EmployeeController@postChecklists');
 
 # User controller
 Route::get('/user/login', 'UserController@getLogin');
@@ -142,4 +144,3 @@ Route::get('/unpacking-sessions-and-cookies', function() {
     echo "<script>document.querySelector('[name=_token]').type='text'</script>";
     echo "<br><br>";
 });
-
