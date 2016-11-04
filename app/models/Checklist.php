@@ -21,4 +21,18 @@ class Checklist extends Eloquent {
 		return $this->belongsToMany('Employee');
 	}
 
+	/**
+	* Execute raw SQL query
+	*/
+	public function execQuery($query) {
+
+		# Escape SQL
+		$sql = DB::raw($query);
+
+		# Run the SQL query
+		$results = DB::select($sql);
+
+		return $results;
+	}
+
 }

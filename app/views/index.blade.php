@@ -34,7 +34,7 @@
 						<a href="/employee/edit/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 						<a href="/employee/reset/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-user"> Password</a>
 						<a href="/employee/forms/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-folder-open"> Forms</a>
-						<a href="/employee/checklists/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"> Checklists</a>
+						<a href="/employee/checklists/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"> Checklist</a>
 						@if ($employee->user_id != 1)
 							<a href="/employee/delete/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 						@endif

@@ -323,9 +323,12 @@ class EmployeeController extends BaseController {
 
         $employee = Employee::where('id', '=', $id)->first();
         $contact = Contact::where('employee_id', '=', $employee->id)->first();
+        $checklist = Checklist::where('id', '=', 1)->first();
+
         return View::make('employee_checklists')
                 ->with('employee', $employee)
-                ->with('contact', $contact);
+                ->with('contact', $contact)
+                ->with('checklist', $checklist);
     }
 
     /*
