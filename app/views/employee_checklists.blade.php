@@ -39,24 +39,20 @@
 				@foreach($checklist as $item)
 					<tr>
 						<td>
-							@if ($employee->status == 1)
-								<div class="employ_active glyphicon glyphicon-ok-circle">active</div>
+							@if ($item->status == 'completed')
+								<div class="employ_active glyphicon glyphicon-ok-circle">{{ $item->status }}</div>
 							@else
-								<div class="employ_term glyphicon glyphicon-ban-circle">inactive</div>
+								<div class="employ_term glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
 							@endif
 						</td>
 						<td>{{ BaseController::convertDateView($employee->start_date) }}</td>
-						<td>{{ $checklist->name }}</td>
-						<td>{{ $checklist->description }}</td>
+						<td>{{ $item->name }}</td>
+						<td>{{ $item->description }}</td>
 					</tr>
 				@endforeach
 			@endif
 		</table>
-<!--
-		@if ($contact->address1)
-			{{ $contact->address1 }} <br>
-		@endif
--->
+
 		<br>
 		{{ Form::hidden('id', $employee->id) }}
 	    {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
