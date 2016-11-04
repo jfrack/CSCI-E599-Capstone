@@ -322,17 +322,25 @@ class EmployeeController extends BaseController {
     public function getChecklists($id) {
 
         $employee = Employee::where('id', '=', $id)->first();
-        $contact = Contact::where('employee_id', '=', $employee->id)->first();
         /*
         $checklist = Checklist::where('id', '=', 2)->first();
 
         $checklist = Checklist::execQuery('select *');
-                */
+        */
+    
         $checklist = DB::table('checklists')
                     ->join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
                     ->where('employee_id', '=', $employee->id)
                     ->get();
-
+                    
+/*
+        $checklist = DB::table('checklist_employee')
+            ->join('checklists', function ($join) {
+                $join->on('checklist_employee.checklist_id', '=', 'checklists.id')
+                ->where('checklist_employee.employee_id', '=', $empoloyee->id);
+            })
+            ->get();
+*/
         return View::make('employee_checklists')
                 ->with('employee', $employee)
                 ->with('checklist', $checklist);
@@ -354,7 +362,7 @@ class EmployeeController extends BaseController {
 
         # Return to dashboard with a user message
         return Redirect::action('IndexController@getIndex')
-            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' checklists have been saved.');
+            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' checklist has been saved.');
     }
 
 }

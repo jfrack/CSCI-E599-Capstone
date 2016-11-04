@@ -11,7 +11,7 @@
 
 {{ Form::open(array('url' => '/employee/checklists')) }}
 
-	<div class="display_box">
+	<div class="display_box_wide">
 		<h3>
 			{{ $employee->firstname }}
 			{{ $employee->midlname }}
@@ -34,7 +34,7 @@
 			<th class="info">Description</th>
 
 			@if(sizeof($checklist) == 0)
-			<tr><td>No results</td></tr>
+			<tr><td>No items found</td></tr>
 			@else
 				@foreach($checklist as $item)
 					<tr>
