@@ -16,73 +16,75 @@
 
 		<legend>Add Employee</legend>
 
-		<div class='form-group'>
-		    {{ Form::label('username', 'Username:') }}
+		<div class='form-group row'>
+		    {{ Form::label('username', 'Username:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('username') }}
 		    <br>
-		    {{ Form::label('password', 'Password:') }}
+		    {{ Form::label('password', 'Password:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::password('password') }}
 		    <br><br>
 	    </div>
 
-	    <div class='form-group'>
-			{{ Form::label('name', 'Name:') }}
+	    <div class='form-group row'>
+			{{ Form::label('name', 'Name:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('firstname') }}
 		    <br>
-		    {{ Form::label('middle', 'Middle:') }}
+		    {{ Form::label('middle', 'Middle:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('midlname') }}
 		    <br>
-		    {{ Form::label('lastname', 'Lastname:') }}
+		    {{ Form::label('lastname', 'Lastname:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('lastname') }}
 		    <br>
-		    {{ Form::label('nickname', 'Nickname:') }}
+		    {{ Form::label('nickname', 'Nickname:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('nickname') }}
 		    <br><br>
 	    </div>
 
-	    <div class='form-group'>
-		    {{ Form::label('address1', 'Address1:') }}
+	    <div class='form-group row'>
+		    {{ Form::label('address1', 'Address1:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('address1') }}
 		    <br>
-		    {{ Form::label('address2', 'Address2:') }}
+		    {{ Form::label('address2', 'Address2:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('address2') }}
 		    <br>
-		    {{ Form::label('address3', 'Address3:') }}
+		    {{ Form::label('address3', 'Address3:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('address3') }}
 		    <br>
-		    {{ Form::label('city', 'City:') }}
+		    {{ Form::label('city', 'City:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('city') }}
 		    <br>
-		    {{ Form::label('state', 'State:') }}
+		    {{ Form::label('state', 'State:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('state', '', array(
 		    			'class' => 'bfh-selectbox bfh-states',
 		    			'data-country' => 'US',
 		    			'data-state' => 'TX')) }}
 		    <br>
-		    {{ Form::label('zipcode', 'Zip code:') }}
+		    {{ Form::label('zipcode', 'Zip Code:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('zipcode') }}
 		    <br><br>
 		</div>
 
-		<div class='form-group'>
-		    {{ Form::label('phone1', 'Phone1:') }}
+		<div class='form-group row'>
+		    {{ Form::label('phone1', 'Phone1:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('phone1') }}
 		    <br>
-		    {{ Form::label('phone2', 'Phone2:') }}
+		    {{ Form::label('phone2', 'Phone2:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('phone2') }}
 		    <br><br>
 		</div>
 
-		<div class='form-group'>
-		    {{ Form::label('birthdate', 'Birthdate:') }}
+		<div class='form-group row'>
+		    {{ Form::label('birthdate', 'Birthdate:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('birthdate', '', array('class' => 'datepicker')) }}
 		    <br>
-		    {{ Form::label('gender', 'Gender:') }}
+		    {{ Form::label('gender', 'Gender:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::radio('gender', 'M', array('class' => 'radio-inline')) }} male
 			{{ Form::radio('gender', 'F', array('class' => 'radio-inline')) }} female
 			{{ Form::radio('gender', 'U', array('class' => 'radio-inline')) }} unspecified
-			<br>
-		    {{ Form::label('start_date', 'Start date:') }}
+		</div>
+
+		<div class='form-group row'>
+		    {{ Form::label('start_date', 'Start Date:', 'class=col-xs-2 col-form-label') }}
 		    {{ Form::text('start_date', '', array('class' => 'datepicker')) }}
 		</div>
 
