@@ -14,7 +14,7 @@
 
 	<div class="display_box">
 
-		<legend>Reset Password</legend>
+		<legend><h2>Reset Password</h2></legend>
 
 	    <div class='form-group'>
 
@@ -25,15 +25,25 @@
 			@if ($employee->nickname)
 				({{ $employee->nickname }})
 			@endif
-			</h3>
+			</h3><br>
 
-	    	<strong>Username:</strong> {{ $user->username }} <br>
-		    {{ Form::label('password', 'New Password:') }}
-		    {{ Form::password('password') }}
-		    {{ Form::label('password_confirm', 'Retype Password:') }}
-		    {{ Form::password('password_confirm') }}
+	    	<strong>Username:</strong> {{ $user->username }} <br><br>
+
+	    	<div class='form-group row'>
+			    {{ Form::label('password', 'New Password', 'class=col-xs-2 col-form-label') }}
+			    <div class="col-xs-10">
+			    	{{ Form::password('password', array('class' => 'form-control')) }}
+		    	</div>
+		    </div>
+		    <div class='form-group row'>
+			    {{ Form::label('password_confirm', 'Retype Password', 'class=col-xs-2 col-form-label') }}
+			    <div class="col-xs-10">
+		    		{{ Form::password('password_confirm', array('class' => 'form-control')) }}
+		    	</div>
+		    </div>
 	    </div>
 
+	    <br>
 		{{ Form::hidden('id', $user->id) }}
 	    {{ Form::submit('Reset', array('class' => 'btn btn-primary')) }}
 	    <a href="/" class="btn btn-warning">Cancel</a>
