@@ -11,7 +11,7 @@
 
 	<div class="display_box">
 
-		<legend>Delete Employee</legend>
+		<legend><h2>Delete Employee</h2></legend>
 
 		<h3>
 			{{ $employee->firstname }}
