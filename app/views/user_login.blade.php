@@ -16,17 +16,19 @@
 
 	<h4>
 	<div class='form-group row'>
-	    {{ Form::label('username', 'Username', 'class=col-xs-1 col-form-label') }}
+	    {{ Form::label('username', 'Username', 'class="col-xs-1 col-form-label"') }}
 	    {{ Form::text('username') }}<br><br>
 
-	    {{ Form::label('password', 'Password', 'class=col-xs-1 col-form-label') }}
+	    {{ Form::label('password', 'Password', 'class="col-xs-1 col-form-label"') }}
 	    {{ Form::password('password') }}<br><br><br>
 
 	    {{ Form::submit('Log in', array('class' => 'btn btn-primary')) }}
 	</div>
 	</h4>
 	<br>
-	* If you have any questions or need assistance, please contact Human Resources at 1-800-204-2222 ext. 1489 or email
-	<a href="mailto:employment@texasbar.com" target="_blank">employment@texasbar.com</a>.
+	<div class="text-background">
+		* If you have any questions or need assistance, please contact Human Resources at 1-800-204-2222 ext. 1489 or email
+		<a href="mailto:employment@texasbar.com" target="_blank">employment@texasbar.com</a>.
+	</div>
 {{ Form::close() }}
 @stop
