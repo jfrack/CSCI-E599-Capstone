@@ -84,3 +84,7 @@ body {
 .ui-datepicker-header {
     color: #606060;
 }
+
+tr {
+    background-color: lightgray;
+}
