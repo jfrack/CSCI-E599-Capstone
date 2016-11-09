@@ -57,7 +57,17 @@ body {
     border: 5px solid darkgray;
     font-size: 120%;
     padding: 25px 50px;
-    width: 80%;
+    width: 50%;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.display_box_wide {
+    background-color: lightgray;
+    border: 5px solid darkgray;
+    font-size: 120%;
+    padding: 25px 50px;
+    width: 100%;
     border-radius: 25px;
     box-shadow: 10px 10px 5px #888888;
 }

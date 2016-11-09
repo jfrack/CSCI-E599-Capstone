@@ -11,7 +11,7 @@
 
 {{ Form::open(array('url' => '/employee/forms')) }}
 
-	<div class="display_box">
+	<div class="display_box_wide">
 		<h3>
 			{{ $employee->firstname }}
 			{{ $employee->midlname }}
