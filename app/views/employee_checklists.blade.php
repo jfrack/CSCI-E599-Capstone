@@ -31,11 +31,11 @@
 		<br><br>
 	
 		<table class="table table-bordered table-hover">
-			<th class="info">Actions</th>
-			<th class="info">Item</th>
-			<th class="info">Description</th>
-			<th class="info">Status</th>
-			<th class="info">Date Completed</th>
+			<th>Actions</th>
+			<th>Item</th>
+			<th>Description</th>
+			<th>Status</th>
+			<th>Date Completed</th>
 
 			@if(sizeof($checklist) == 0)
 			<tr><td>No items found</td></tr>

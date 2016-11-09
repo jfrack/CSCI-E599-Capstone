@@ -63,9 +63,9 @@ body {
 }
 
 .display_box_wide {
-    background-color: lightgray;
+    background-color: lightblue;
     border: 5px solid darkgray;
-    font-size: 120%;
+    font-size: 100%;
     padding: 25px 50px;
     width: 100%;
     border-radius: 25px;
@@ -95,6 +95,11 @@ body {
     color: #606060;
 }
 
-tr {
+.table {
     background-color: lightgray;
+}
+
+.table th {
+    color: white;
+    background-color: #3e78d6;
 }

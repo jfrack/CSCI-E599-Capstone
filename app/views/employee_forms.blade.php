@@ -29,10 +29,10 @@
 		<br><br>
 
 		<table class="table table-bordered table-hover">
-			<th class="info">Actions</th>
-			<th class="info">Form</th>
-			<th class="info">Status</th>
-			<th class="info">Date Completed</th>
+			<th>Actions</th>
+			<th>Form</th>
+			<th>Status</th>
+			<th>Date Completed</th>
 			<tr>
 				<td>
 					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>

@@ -18,11 +18,11 @@
 
 @section('content')
 	<table class="table table-bordered table-hover">
-		<th class="info">Actions</th>
-		<th class="info">Employee</th>
-		<th class="info">Status</th>
-		<th class="info">Start Date</th>
-		<th class="info">Last Login</th>
+		<th>Actions</th>
+		<th>Employee</th>
+		<th>Status</th>
+		<th>Start Date</th>
+		<th>Last Login</th>
 
 		@if(sizeof($employees) == 0)
 			<tr><td>No results</td></tr>
