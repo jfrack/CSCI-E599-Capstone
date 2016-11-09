@@ -9,6 +9,11 @@ body {
     background-color: #F0F0F0;
 }
 
+.container {
+    float: left;
+    width: 20em;
+}
+
 .flash-message-success {
     width: 100%;
     position: absolute;

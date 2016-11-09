@@ -56,7 +56,7 @@ class UserController extends BaseController {
         }
         else {
             return Redirect::to('/user/login')
-                    ->with('flash_message_error', 'Log in failed.  Please try again.')
+                    ->with('flash_message_error', 'Login failed.  Please try again.')
                     ->withInput();
         }
     }
