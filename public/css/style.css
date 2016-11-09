@@ -68,7 +68,7 @@ body {
 }
 
 .display_box_wide {
-    background-color: lightblue;
+    background-color: lightgray;
     border: 5px solid darkgray;
     font-size: 100%;
     padding: 25px 50px;
@@ -100,11 +100,15 @@ body {
     color: #606060;
 }
 
-.table {
-    background-color: lightgray;
+.table tr {
+    background-color: aliceblue;
 }
 
 .table th {
     color: white;
     background-color: #3e78d6;
+}
+
+.table tr:hover {
+    background-color: lightblue !important;
 }
