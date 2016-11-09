@@ -9,9 +9,14 @@ body {
     background-color: #F0F0F0;
 }
 
-.container {
+.container-login {
     float: left;
-    width: 20em;
+    width: 250px;
+}
+
+.container-display_box {
+    float: left;
+    width: 600px;
 }
 
 .flash-message-success {
@@ -57,7 +62,7 @@ body {
     border: 5px solid darkgray;
     font-size: 120%;
     padding: 25px 50px;
-    width: 50%;
+    width: 800px;
     border-radius: 25px;
     box-shadow: 10px 10px 5px #888888;
 }
