@@ -35,7 +35,7 @@
 			<th>Item</th>
 			<th>Description</th>
 			<th>Status</th>
-			<th>Date Completed</th>
+			<th>Date Updated</th>
 
 			@if(sizeof($checklist) == 0)
 			<tr><td>No items found</td></tr>
@@ -43,9 +43,11 @@
 				@foreach($checklist as $item)
 					<tr>
 						<td>
+							<!--
 							<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-							<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"> Comments</a>
-							<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+							-->
+							<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"> Comments</a>
+							<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 						</td>
 						<td>{{ $item->name }}</td>
 						<td>{{ $item->description }}</td>
@@ -56,7 +58,7 @@
 								<div class="employ_term glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
 							@endif
 						</td>
-						<td>n/a</td>
+						<td>{{ $item->updated_at }}</td>
 					</tr>
 				@endforeach
 			@endif
