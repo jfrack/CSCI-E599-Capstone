@@ -17,7 +17,8 @@ class CreateChecklistEmployeeTable extends Migration {
     		$table->foreign('employee_id')->references('id')->on('employees');
     		$table->integer('checklist_id')->unsigned();
     		$table->foreign('checklist_id')->references('id')->on('checklists');
-    		$table->enum('status', array('todo', 'completed', 'na', 'other'));
+    		$table->enum('status', array('todo', 'pending', 'completed'));
+    		$table->string('comments', 256);
     		$table->timestamps();
     		$table->softDeletes();
 		});
