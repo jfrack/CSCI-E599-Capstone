@@ -27,7 +27,16 @@
 		@endif
 		<br><br>
 
-		<a href="/" class="btn btn-primary">Add Item</a>
+		<div class="container-login">
+			<select class="form-control">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<a href="" class="btn btn-primary">Add Item</a>
+		</div>
 		<br><br>
 	
 		<table class="table table-bordered table-hover">
@@ -35,7 +44,7 @@
 			<th>Item</th>
 			<th>Description</th>
 			<th>Status</th>
-			<th>Date Updated</th>
+			<th>Last Update</th>
 
 			@if(sizeof($checklist) == 0)
 			<tr><td>No items found</td></tr>
