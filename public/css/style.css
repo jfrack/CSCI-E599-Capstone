@@ -9,12 +9,12 @@ body {
     background-color: #F0F0F0;
 }
 
-.container-login {
+.container-small {
     float: left;
     width: 250px;
 }
 
-.container-display_box {
+.container-large {
     float: left;
     width: 600px;
 }
@@ -75,6 +75,10 @@ body {
     width: 100%;
     border-radius: 25px;
     box-shadow: 10px 10px 5px #888888;
+}
+
+.button-layout {
+    margin-left: 25px;
 }
 
 .copy_button {

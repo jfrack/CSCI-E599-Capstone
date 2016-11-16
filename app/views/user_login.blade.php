@@ -12,7 +12,7 @@
 
 <h3>Please login to complete your new hire forms.</h3><br>
 
-<div class="container-login">
+<div class="container-small">
 	{{ Form::open(array('url' => '/user/login')) }}
 
 		<div class='form-group row'>

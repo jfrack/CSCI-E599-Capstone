@@ -10,7 +10,7 @@
     <div class='error'>{{ $message }}</div>
 @endforeach
 
-<div class="container-display_box">
+<div class="container-large">
 	{{ Form::open(array('url' => '/employee/create')) }}
 
 		<div class="display_box">
