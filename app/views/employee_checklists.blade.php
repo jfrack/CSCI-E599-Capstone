@@ -30,11 +30,9 @@
 		<div class="container-large">
 			<div class="container-small">
 				<select class="form-control">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
+					@foreach($checklist as $item)
+					    <option>{{ $item->name }}</option>
+					@endforeach
 				</select>
 			</div>
 			<a href="" class="btn btn-primary button-layout">Add Item</a>
