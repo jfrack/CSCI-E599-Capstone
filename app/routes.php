@@ -29,8 +29,8 @@ Route::get('/employee/forms/{id}', 'EmployeeController@getForms');
 Route::post('/employee/forms', 'EmployeeController@postForms');
 Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
 Route::post('/employee/checklists', 'EmployeeController@postChecklists');
-Route::get('/employee/checklists/{id}/delete/{item_id}', 'EmployeeController@getChecklistsDelete');
-Route::post('/employee/checklists/delete/{id}', 'EmployeeController@postChecklistsDelete');
+Route::get('/employee/checklists/{employee_id}/delete/{checklist_id}', 'EmployeeController@getChecklistsDelete');
+Route::post('/employee/checklists/{employee_id}/delete/{checklist_id}', 'EmployeeController@postChecklistsDelete');
 
 # User controller
 Route::get('/user/login', 'UserController@getLogin');
