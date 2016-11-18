@@ -65,7 +65,7 @@
 		<br>
 		{{ Form::open(array('url' => '/employee/delete/$id')) }}
 			{{ Form::hidden('id', $employee->id) }}
-		    {{ Form::submit('Delete', array('class' => 'btn btn-primary')) }}
+		    {{ Form::submit('Delete Employee', array('class' => 'btn btn-primary')) }}
 		    <a href="/" class="btn btn-warning">Cancel</a>
 		{{ Form::close() }}
 
