@@ -20,7 +20,7 @@
 		</h3>
 		<br>
 		<h4><legend>
-			{{ $checklist_item_info->name }}
+			{{ $checklist_item_info->name }} - 
 			@if ($checklist_item->status == 'completed')
 				<div class="employ_active glyphicon glyphicon-ok-circle">{{ $checklist_item->status }}</div>
 			@else
@@ -34,6 +34,7 @@
 		<br><br>
 		{{ Form::open(array('url' => '/employee/checklists/$employee_id/delete/$item_id')) }}
 			{{ Form::hidden('$employee_id', $employee->id) }}
+			{{ Form::hidden('$item_id', $checklist_item->checklist_id) }}
 		    {{ Form::submit('Delete Item', array('class' => 'btn btn-primary')) }}
 		    <a href=".." class="btn btn-warning">Cancel</a>
 		{{ Form::close() }}
