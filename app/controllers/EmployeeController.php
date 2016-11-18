@@ -370,15 +370,23 @@ class EmployeeController extends BaseController {
 
     /*
     * Display delete employee's checklist item confirmation page
-    * GET: http://localhost/employee/checklists/delete/$id
+    * GET: http://localhost/employee/checklists/$employee_id/delete/$item_id
     */
-    public function getChecklistsDelete($id) {
+    public function getChecklistsDelete($employee_id, $item_id) {
 
-        $employee = Employee::where('id', '=', $id)->first();
-        $contact = Contact::where('employee_id', '=', $employee->id)->first();
+        $employee = Employee::where('id', '=', $employee_id)->first();
+        $checklist_item = DB::table('checklist_employee')
+                    ->where('employee_id', '=', $employee_id)
+                    ->where('checklist_id', '=', $item_id)
+                    ->first();
+        $checklist_item_info = DB::table('checklists')
+                    ->where('id', '=', $item_id)
+                    ->first();
+
         return View::make('employee_checklists_delete')
                 ->with('employee', $employee)
-                ->with('contact', $contact);
+                ->with('checklist_item', $checklist_item)
+                ->with('checklist_item_info', $checklist_item_info);
     }
 
     /*

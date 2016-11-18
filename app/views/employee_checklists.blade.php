@@ -20,12 +20,7 @@
 					({{ $employee->nickname }})
 				@endif
 			</h3>
-			@if ($employee->status == 1)
-				<div class="employ_active glyphicon glyphicon-ok-circle">active</div>
-			@else
-				<div class="employ_term glyphicon glyphicon-ban-circle">inactive</div>
-			@endif
-			<br><br>
+			<br>
 
 			<div class="container-large">
 				<div class="container-small">
@@ -56,7 +51,7 @@
 								<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 								-->
 								<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-list-alt"> Comments</a>
-								<a href="/employee/checklists/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+								<a href="/employee/checklists/{{ $employee->id }}/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 							</td>
 							<td>{{ $item->name }}</td>
 							<td>{{ $item->description }}</td>
