@@ -368,4 +368,47 @@ class EmployeeController extends BaseController {
             ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' checklist has been saved.');
     }
 
+    /*
+    * Display delete employee's checklist item confirmation page
+    * GET: http://localhost/employee/checklists/delete/$id
+    */
+    public function getChecklistsDelete($id) {
+
+        $employee = Employee::where('id', '=', $id)->first();
+        $contact = Contact::where('employee_id', '=', $employee->id)->first();
+        return View::make('employee_checklists_delete')
+                ->with('employee', $employee)
+                ->with('contact', $contact);
+    }
+
+    /*
+    * Soft delete employee's checklist item
+    * POST: http://localhost/employee/checklists/delete/$id
+    */
+    public function postChecklistsDelete() {
+
+        try {
+            $employee = Employee::findOrFail(Input::get('id'));
+        }
+        catch(exception $e) {
+            return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_error', 'ERROR EC4: Could not delete employee.');
+        }
+
+        # inactivate and soft delete user account via UserController
+        App::make('UserController')->postDelete($employee->user_id);
+
+        # soft delete employee's contacts via ContactController
+        App::make('ContactController')->postDelete($employee->id);
+
+        # flag employee status as terminated
+        $employee->update(array('status' => 0));
+        # soft delete employee
+        $employee->delete();
+
+        # Return to dashboard with a user message
+        return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' has been deleted.');
+    }
+
 }
