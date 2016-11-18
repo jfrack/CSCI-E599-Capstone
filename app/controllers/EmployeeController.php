@@ -328,10 +328,12 @@ class EmployeeController extends BaseController {
         $checklist = Checklist::execQuery('select *');
         */
     
-        $checklist = DB::table('checklists')
+        $checklist_employee = DB::table('checklists')
                     ->join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
                     ->where('employee_id', '=', $employee->id)
                     ->get();
+
+        $checklist = DB::table('checklists')->get();        
                     
 /*
         $checklist = DB::table('checklist_employee')
@@ -343,6 +345,7 @@ class EmployeeController extends BaseController {
 */
         return View::make('employee_checklists')
                 ->with('employee', $employee)
+                ->with('checklist_employee', $checklist_employee)
                 ->with('checklist', $checklist);
     }
 
