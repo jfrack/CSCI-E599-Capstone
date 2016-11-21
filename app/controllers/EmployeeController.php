@@ -395,14 +395,19 @@ class EmployeeController extends BaseController {
     */
     public function postChecklistsDelete() {
 
+        $employee_id = Input::get('employee_id');
+
         try {
-            $employee = Employee::findOrFail(Input::get('id'));
+            
+            #$employee = Employee::findOrFail(Input::get('employee_id'));
+            $employee = Employee::findOrFail($employee_id);
         }
         catch(exception $e) {
             return Redirect::action('IndexController@getIndex')
-            ->with('flash_message_error', 'ERROR EC4: Could not delete employee.');
+            ->with('flash_message_error', 'ERROR EC14: Could not delete checklist item.');
         }
 
+/*
         # inactivate and soft delete user account via UserController
         App::make('UserController')->postDelete($employee->user_id);
 
@@ -413,10 +418,11 @@ class EmployeeController extends BaseController {
         $employee->update(array('status' => 0));
         # soft delete employee
         $employee->delete();
+*/
 
-        # Return to dashboard with a user message
-        return Redirect::action('IndexController@getIndex')
-            ->with('flash_message_success', $employee->firstname.' '.$employee->lastname.' has been deleted.');
+        # Return to employee checklists with a user message
+        return Redirect::action('EmployeeController@getChecklists($employee_id)')
+            ->with('flash_message_success', 'Checklist item has been deleted.');
     }
 
 }
