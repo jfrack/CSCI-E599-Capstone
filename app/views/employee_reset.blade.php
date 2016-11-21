@@ -40,7 +40,7 @@
 	    </div>
 
 	    @foreach($errors->all() as $message)
-		    <div class='error-msg'>{{ $message }}</div>
+		    <div class='alert alert-danger'><span class="glyphicon glyphicon-alert"></span> {{ $message }} </div>
 		@endforeach
 
 	    <br>
