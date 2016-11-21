@@ -9,6 +9,7 @@
 	<a href="/employee/create" class="btn btn-primary">Add Employee</a>
 	<a href="/" class="btn btn-primary">Manage Forms</a>
 	<a href="/" class="btn btn-primary">Manage Checklists</a>
+	<a href="/" class="btn btn-primary">User Security</a>
 	<a href="/user/logout" class="btn btn-warning">Logout</a>
 	<!--
 	<a href="/user/logout" class="btn btn-warning">Logout {{ Auth::user()->username }}</a>
@@ -32,6 +33,7 @@
 					<td>
 						<a href="/employee/view/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
 						<a href="/employee/edit/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+						<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-lock"> Security</a>
 						<a href="/employee/reset/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-user"> Password</a>
 						<a href="/employee/forms/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-folder-open"> Forms</a>
 						<a href="/employee/checklists/{{ $employee->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok"> Checklist</a>
