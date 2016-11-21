@@ -39,6 +39,11 @@ body {
     padding: 5px;
 }
 
+.error-msg {
+    color: white;
+    background-color: firebrick;
+}
+
 .text-background {
     position: absolute;
     background-color: #F0F0F0;

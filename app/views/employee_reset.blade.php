@@ -6,10 +6,6 @@
 
 @section('content')
 
-@foreach($errors->all() as $message)
-    <div class='error'>{{ $message }}</div>
-@endforeach
-
 {{ Form::open(array('url' => '/employee/reset')) }}
 
 	<div class="display_box">
@@ -42,6 +38,10 @@
 		    	</div>
 		    </div>
 	    </div>
+
+	    @foreach($errors->all() as $message)
+		    <div class='error-msg'>{{ $message }}</div>
+		@endforeach
 
 	    <br>
 		{{ Form::hidden('id', $user->id) }}
