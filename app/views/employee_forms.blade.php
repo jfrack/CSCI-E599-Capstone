@@ -20,13 +20,7 @@
 				({{ $employee->nickname }})
 			@endif
 		</h3>
-
-		@if ($employee->status == 1)
-			<div class="employ_active glyphicon glyphicon-ok-circle">active</div>
-		@else
-			<div class="employ_term glyphicon glyphicon-ban-circle">inactive</div>
-		@endif
-		<br><br>
+		<br>
 
 		<table class="table table-bordered table-hover">
 			<th>Actions</th>
@@ -35,10 +29,10 @@
 			<th>Date Completed</th>
 			<tr>
 				<td>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 				</td>
 				<td>ERS Benefits Enrollment</td>
 				<td><div class="employ_active glyphicon glyphicon-ok">completed</div></td>
@@ -46,10 +40,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 				</td>
 				<td>IRS W-4</td>
 				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
@@ -57,10 +51,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 				</td>
 				<td>Employee Handbook</td>
 				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
