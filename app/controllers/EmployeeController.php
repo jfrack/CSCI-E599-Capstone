@@ -210,7 +210,8 @@ class EmployeeController extends BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('employee/reset/'.Input::get('id'))
-                    ->with('flash_message_error', 'Password reset failed.  Please try again.')
+                    # Already get specific errors from validator
+                    # ->with('flash_message_error', 'Password reset failed.  Please try again.')
                     ->withErrors($validator);
         }
 
@@ -397,15 +398,6 @@ class EmployeeController extends BaseController {
 
         // soft delete checklist item
         $checklist_item->delete();
-        
-        # Return to employee checklists with a user message
-        //return Redirect::action('EmployeeController@getChecklists('.$employee_id.')')
-
-        /*
-        return Redirect::action('EmployeeController@getChecklists')
-            ->with('id', $employee_id)
-            ->with('flash_message_success', 'Checklist item has been deleted.');
-        */
 
         return EmployeeController::getChecklists($employee_id)
                 ->with('flash_message_success', 'Checklist item has been deleted.');
