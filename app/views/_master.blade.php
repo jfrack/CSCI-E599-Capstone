@@ -24,14 +24,23 @@
 
 </head>
 <body>
+
+	<!--
 	@if(Session::get('flash_message_success'))
 		<div class='flash-message-success'>{{ Session::get('flash_message_success') }}</div>
 	@elseif(Session::get('flash_message_error'))
 		<div class='flash-message-error'>{{ Session::get('flash_message_error') }}</div>
 	@endif
+	-->
 
 	<a href='/'><img class='logo' src='/img/logo-sbot.gif' alt='SBOT logo'></a>
 	<h1>New Hire Portal</h1><br><br>
+
+	@if(Session::get('flash_message_success'))
+		<div class='alert alert-success'><span class="glyphicon glyphicon-ok-sign"></span> {{ Session::get('flash_message_success') }} </div>
+	@elseif(Session::get('flash_message_error'))
+		<div class='alert alert-danger'><span class="glyphicon glyphicon-exclamation-sign"></span> {{ Session::get('flash_message_error') }} </div>
+	@endif
 
 	@yield('nav')
 

@@ -11,9 +11,6 @@
 	<a href="/" class="btn btn-primary">Manage Checklists</a>
 	<a href="/" class="btn btn-primary">User Security</a>
 	<a href="/user/logout" class="btn btn-warning">Logout</a>
-	<!--
-	<a href="/user/logout" class="btn btn-warning">Logout {{ Auth::user()->username }}</a>
-	-->
 	<br><br>
 @stop
 
