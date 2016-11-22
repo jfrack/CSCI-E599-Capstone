@@ -322,11 +322,6 @@ class EmployeeController extends BaseController {
     public function getChecklists($id) {
 
         $employee = Employee::where('id', '=', $id)->first();
-        /*
-        $checklist = Checklist::where('id', '=', 2)->first();
-
-        $checklist = Checklist::execQuery('select *');
-        */
     
         $checklist_employee = DB::table('checklists')
                     ->join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
@@ -335,14 +330,6 @@ class EmployeeController extends BaseController {
 
         $checklist = DB::table('checklists')->get();        
                     
-/*
-        $checklist = DB::table('checklist_employee')
-            ->join('checklists', function ($join) {
-                $join->on('checklist_employee.checklist_id', '=', 'checklists.id')
-                ->where('checklist_employee.employee_id', '=', $empoloyee->id);
-            })
-            ->get();
-*/
         return View::make('employee_checklists')
                 ->with('employee', $employee)
                 ->with('checklist_employee', $checklist_employee)
@@ -396,33 +383,32 @@ class EmployeeController extends BaseController {
     public function postChecklistsDelete() {
 
         $employee_id = Input::get('employee_id');
-
+        $checklist_id = Input::get('checklist_id');
+        
         try {
-            
-            #$employee = Employee::findOrFail(Input::get('employee_id'));
-            $employee = Employee::findOrFail($employee_id);
+            $checklist_item = DB::table('checklist_employee')
+                        ->where('employee_id', '=', $employee_id)
+                        ->where('checklist_id', '=', $checklist_id);
         }
         catch(exception $e) {
-            return Redirect::action('IndexController@getIndex')
+            return Redirect::action('EmployeeController@getChecklists('.$employee_id.')')
             ->with('flash_message_error', 'ERROR EC14: Could not delete checklist item.');
         }
 
-/*
-        # inactivate and soft delete user account via UserController
-        App::make('UserController')->postDelete($employee->user_id);
-
-        # soft delete employee's contacts via ContactController
-        App::make('ContactController')->postDelete($employee->id);
-
-        # flag employee status as terminated
-        $employee->update(array('status' => 0));
-        # soft delete employee
-        $employee->delete();
-*/
-
+        // soft delete checklist item
+        $checklist_item->delete();
+        
         # Return to employee checklists with a user message
-        return Redirect::action('EmployeeController@getChecklists($employee_id)')
+        //return Redirect::action('EmployeeController@getChecklists('.$employee_id.')')
+
+        /*
+        return Redirect::action('EmployeeController@getChecklists')
+            ->with('id', $employee_id)
             ->with('flash_message_success', 'Checklist item has been deleted.');
+        */
+
+        return EmployeeController::getChecklists($employee_id)
+                ->with('flash_message_success', 'Checklist item has been deleted.');
     }
 
 }

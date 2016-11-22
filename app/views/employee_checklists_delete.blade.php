@@ -33,8 +33,8 @@
 
 		<br><br>
 		{{ Form::open(array('url' => '/employee/checklists/$employee_id/delete/$checklist_id')) }}
-			{{ Form::hidden('$employee_id', $employee->id) }}
-			{{ Form::hidden('$checklist_id', $checklist_item->checklist_id) }}
+			{{ Form::hidden('employee_id', $employee->id) }}
+			{{ Form::hidden('checklist_id', $checklist_item->checklist_id) }}
 		    {{ Form::submit('Delete Item', array('class' => 'btn btn-primary')) }}
 		    <a href=".." class="btn btn-warning">Cancel</a>
 		{{ Form::close() }}
