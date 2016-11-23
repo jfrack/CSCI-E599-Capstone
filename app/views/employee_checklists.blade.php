@@ -9,8 +9,9 @@
 	    <div class='error'>{{ $message }}</div>
 	@endforeach
 
+<!--
 	{{ Form::open(array('url' => '/employee/checklists')) }}
-
+-->
 		<div class="display_box_wide">
 			<h3>
 				{{ $employee->firstname }}
@@ -22,22 +23,24 @@
 			</h3>
 			<br>
 
-			<div class="container-large">
-				<div class="container-small">
-					{{ Form::label('item', 'Item', 'class=col-xs-2 col-form-label hidden') }}
-					<select class="form-control">
-						@foreach($checklist as $item)
-						    <option>{{ $item->name }}</option>
-						@endforeach
-					</select>
+			{{ Form::open(array('url' => '/employee/checklists/$employee->id/add/$item->id')) }}
+				<div class="container-large">
+					<div class="container-small">
+						{{ Form::label('checklist_id', 'checklist_id', 'class=col-xs-2 col-form-label hidden') }}
+						<select class="form-control">
+							@foreach($checklist as $item)
+							    <option>{{ $item->name }}</option>
+							@endforeach
+						</select>
+					</div>
+					{{ Form::hidden('employee_id', $employee->id) }}
+			    	{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
+			    	<!--
+					<a href="/employee/checklists/{{ $employee->id }}/add/{{ $item->id }}" class="btn btn-primary button-layout">Add Item</a>
+					-->
 				</div>
-				{{ Form::hidden('id', $employee->id) }}
-		    	{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
-		    	<!--
-				<a href="/employee/checklists/{{ $employee->id }}/add/{{ $item->id }}" class="btn btn-primary button-layout">Add Item</a>
-				-->
-			</div>
-			<br><br><br>
+				<br><br><br>
+			{{ Form::close() }}
 		
 			<table class="table table-bordered table-hover">
 				<th>Actions</th>
@@ -80,6 +83,7 @@
 			-->
 			<a href="/" class="btn btn-primary">Back</a>
 		</div>
-
+<!--
 	{{ Form::close() }}	
+-->
 @stop
