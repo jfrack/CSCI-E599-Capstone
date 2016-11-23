@@ -24,13 +24,18 @@
 
 			<div class="container-large">
 				<div class="container-small">
+					{{ Form::label('item', 'Item', 'class=col-xs-2 col-form-label hidden') }}
 					<select class="form-control">
 						@foreach($checklist as $item)
 						    <option>{{ $item->name }}</option>
 						@endforeach
 					</select>
 				</div>
-				<a href="" class="btn btn-primary button-layout">Add Item</a>
+				{{ Form::hidden('id', $employee->id) }}
+		    	{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
+		    	<!--
+				<a href="/employee/checklists/{{ $employee->id }}/add/{{ $item->id }}" class="btn btn-primary button-layout">Add Item</a>
+				-->
 			</div>
 			<br><br><br>
 		
