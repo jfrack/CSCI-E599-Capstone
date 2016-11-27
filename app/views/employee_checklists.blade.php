@@ -6,7 +6,7 @@
 
 @section('content')
 	@foreach($errors->all() as $message)
-	    <div class='error'>{{ $message }}</div>
+	    <div class="error">{{ $message }}</div>
 	@endforeach
 
 <!--
@@ -27,11 +27,16 @@
 				<div class="container-large">
 					<div class="container-small">
 						{{ Form::label('checklist_id', 'checklist_id', 'class=col-xs-2 col-form-label hidden') }}
+						{{ Form::select('checklist_id', array('1' => 'foo', '2' => 'bar'), null, array('class' => 'form-control')) }}
+						<!--
+						{{ Form::select('checklist_id', array('1' => 'foo', '2' => 'bar')) }}
 						<select class="form-control">
+
 							@foreach($checklist as $item)
 							    <option>{{ $item->name }}</option>
 							@endforeach
 						</select>
+						-->
 					</div>
 					{{ Form::hidden('employee_id', $employee->id) }}
 			    	{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
