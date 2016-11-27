@@ -334,7 +334,11 @@ class EmployeeController extends BaseController {
         $checklist_selection = array();
         foreach ($checklist as $item) {
             $checklist_selection[] = $item->name;
-        }    
+        }
+
+        # start array at index 1 instead of 0
+        array_unshift($checklist_selection, 'phoney');
+        unset($checklist_selection[0]);    
                     
         return View::make('employee_checklists')
                 ->with('employee', $employee)
