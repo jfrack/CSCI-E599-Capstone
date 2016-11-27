@@ -329,12 +329,17 @@ class EmployeeController extends BaseController {
                     ->where('employee_id', '=', $employee->id)
                     ->get();
 
-        $checklist = DB::table('checklists')->get();        
+        $checklist = DB::table('checklists')->get();
+
+        $checklist_selection = array();
+        foreach ($checklist as $item) {
+            $checklist_selection[] = $item->name;
+        }    
                     
         return View::make('employee_checklists')
                 ->with('employee', $employee)
                 ->with('checklist_employee', $checklist_employee)
-                ->with('checklist', $checklist);
+                ->with('checklist_selection', $checklist_selection);
     }
 
     /*

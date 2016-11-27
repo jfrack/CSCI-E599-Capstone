@@ -27,22 +27,10 @@
 				<div class="container-large">
 					<div class="container-small">
 						{{ Form::label('checklist_id', 'checklist_id', 'class=col-xs-2 col-form-label hidden') }}
-						{{ Form::select('checklist_id', array('1' => 'foo', '2' => 'bar'), null, array('class' => 'form-control')) }}
-						<!--
-						{{ Form::select('checklist_id', array('1' => 'foo', '2' => 'bar')) }}
-						<select class="form-control">
-
-							@foreach($checklist as $item)
-							    <option>{{ $item->name }}</option>
-							@endforeach
-						</select>
-						-->
+						{{ Form::select('checklist_id', $checklist_selection, null, array('class' => 'form-control')) }}
 					</div>
 					{{ Form::hidden('employee_id', $employee->id) }}
 			    	{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
-			    	<!--
-					<a href="/employee/checklists/{{ $employee->id }}/add/{{ $item->id }}" class="btn btn-primary button-layout">Add Item</a>
-					-->
 				</div>
 				<br><br><br>
 			{{ Form::close() }}
