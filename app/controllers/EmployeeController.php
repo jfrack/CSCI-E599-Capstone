@@ -366,28 +366,20 @@ class EmployeeController extends BaseController {
 
         $employee_id = Input::get('employee_id');
         $checklist_id = Input::get('checklist_id');
-        
-        try {
-            $checklist_item = DB::table('checklist_employee')
-                        ->where('employee_id', '=', $employee_id)
-                        ->where('checklist_id', '=', $checklist_id);
-        }
-        catch(exception $e) {
-            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
-            ->with('flash_message_error', 'ERROR EC14: Could not add checklist item.');
-        }
 
         try {
             # Insert item into checklist_employee table
             $checklist_item = Checklist_Employee::create(array(
                         'employee_id' => $employee_id,
-                        'checklist_id' => Input::get('checklist_id'),
-                        'status' => 'todo'));
+                        'checklist_id' => $checklist_id,
+                        'status' => 'todo',
+                        'comments' => ''));
             $checklist_item->save();
         }
         catch (exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
-            ->with('flash_message_error', 'ERROR EC15: Internal error adding checklist item.');
+            ->with('flash_message_error', 'ERROR EC15: Internal error adding checklist item.'
+                .' checklist_id='.$checklist_id.' employee_id='.$employee_id);
         }
 
         # Return to employee checklist view
