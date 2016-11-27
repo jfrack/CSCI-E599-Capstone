@@ -338,7 +338,7 @@ class EmployeeController extends BaseController {
     }
 
     /*
-    * Add checklist item to employee
+    * Save checklists
     * POST: http://localhost/employee/checklists
     */
     public function postChecklists() {
@@ -350,12 +350,12 @@ class EmployeeController extends BaseController {
         }
         catch(exception $e) {
             return Redirect::action('IndexController@getIndex')
-            ->with('flash_message_error', 'ERROR EC13: Could not add checklist item.');
+            ->with('flash_message_error', 'ERROR EC13: Could not save checklist.');
         }
 
         # Return to employee checklist view
-        return EmployeeController::getChecklists($employee_id)
-        ->with('flash_message_success', 'Checklist item has been added.');
+        return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+        ->with('flash_message_success', 'Checklist has been saved.');
     }
 
     /*
@@ -373,7 +373,7 @@ class EmployeeController extends BaseController {
                         ->where('checklist_id', '=', $checklist_id);
         }
         catch(exception $e) {
-            return Redirect::action('EmployeeController@getChecklists('.$employee_id.')')
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
             ->with('flash_message_error', 'ERROR EC14: Could not add checklist item.');
         }
 
@@ -386,12 +386,12 @@ class EmployeeController extends BaseController {
             $checklist_item->save();
         }
         catch (exception $e) {
-            return Redirect::action('IndexController@getIndex')
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
             ->with('flash_message_error', 'ERROR EC15: Internal error adding checklist item.');
         }
 
         # Return to employee checklist view
-        return EmployeeController::getChecklists($employee_id)
+        return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
                 ->with('flash_message_success', 'Checklist item has been added.');
     }
 
@@ -431,7 +431,7 @@ class EmployeeController extends BaseController {
                         ->where('checklist_id', '=', $checklist_id);
         }
         catch(exception $e) {
-            return Redirect::action('EmployeeController@getChecklists('.$employee_id.')')
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
             ->with('flash_message_error', 'ERROR EC16: Could not delete checklist item.');
         }
 
@@ -439,7 +439,7 @@ class EmployeeController extends BaseController {
         $checklist_item->delete();
 
         # Return to employee checklist view
-        return EmployeeController::getChecklists($employee_id)
+        return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
                 ->with('flash_message_success', 'Checklist item has been deleted.');
     }
 
