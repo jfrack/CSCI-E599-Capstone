@@ -426,11 +426,13 @@ class EmployeeController extends BaseController {
 
         $employee_id = Input::get('employee_id');
         $checklist_id = Input::get('checklist_id');
+        $checklist_created_at = Input::get('checklist_created_at');
         
         try {
             $checklist_item = DB::table('checklist_employee')
                         ->where('employee_id', '=', $employee_id)
-                        ->where('checklist_id', '=', $checklist_id);
+                        ->where('checklist_id', '=', $checklist_id)
+                        ->where('created_at', '=', $checklist_created_at);
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
