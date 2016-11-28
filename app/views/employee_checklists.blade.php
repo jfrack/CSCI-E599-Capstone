@@ -63,7 +63,7 @@
 									<div class="employ_term glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
 								@endif
 							</td>
-							<td>{{ $item->updated_at }}</td>
+							<td>{{ BaseController::convertDateTimeView($item->updated_at) }}</td>
 						</tr>
 					@endforeach
 				@endif
