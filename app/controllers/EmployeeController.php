@@ -327,6 +327,7 @@ class EmployeeController extends BaseController {
         $checklist_employee = DB::table('checklists')
                     ->join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
                     ->where('employee_id', '=', $employee->id)
+                    ->orderBy('checklist_employee.updated_at', 'desc')
                     ->get();
 
         $checklist = DB::table('checklists')->get();
