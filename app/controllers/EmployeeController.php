@@ -444,7 +444,7 @@ class EmployeeController extends BaseController {
             $checklist_item->update(array(
                         'status' => Input::get('status'),
                         'comments' => Input::get('comments')));
-            $employee->save();
+            #$checklist_item->save();
         }
         catch (exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
