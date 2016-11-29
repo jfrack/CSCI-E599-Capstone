@@ -419,6 +419,45 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Save employee's checklist item
+    * POST: http://localhost/employee/checklists/$employee_id/edit/$checklist_id
+    */
+    public function postChecklistsEdit() {
+
+        $employee_id = Input::get('employee_id');
+        $checklist_id = Input::get('checklist_id');
+        $checklist_created_at = Input::get('checklist_created_at');
+        
+        try {
+            $checklist_item = DB::table('checklist_employee')
+                        ->where('employee_id', '=', $employee_id)
+                        ->where('checklist_id', '=', $checklist_id)
+                        ->where('created_at', '=', $checklist_created_at);
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+            ->with('flash_message_error', 'ERROR EC17: Could not save checklist item.');
+        }
+
+        try {
+            # Update checklist_employee table
+            $checklist_item->update(array(
+                        'status' => Input::get('status'),
+                        'comments' => Input::get('comments')));
+            $employee->save();
+        }
+        catch (exception $e) {
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+            ->with('flash_message_error', 'ERROR EC18: Internal error updating checklist item.');
+        }
+
+
+        # Return to employee checklist view
+        return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+                ->with('flash_message_success', 'Checklist item has been updated.');
+    }
+
+    /*
     * Display delete employee's checklist item confirmation page
     * GET: http://localhost/employee/checklists/$employee_id/delete/$checklist_id
     */
