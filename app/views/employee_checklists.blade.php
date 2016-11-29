@@ -59,8 +59,10 @@
 							<td>
 								@if ($item->status == 'completed')
 									<div class="checklists_item_completed glyphicon glyphicon-ok-circle">{{ $item->status }}</div>
+								@elseif ($item->status == 'pending')
+									<div class="checklists_item_pending glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
 								@else
-									<div class="checklists_item_todo glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
+									<div class="checklists_item_todo glyphicon glyphicon-remove-circle">{{ $item->status }}</div>
 								@endif
 							</td>
 							<td>{{ BaseController::convertDateTimeView($item->updated_at) }}</td>

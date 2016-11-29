@@ -30,11 +30,11 @@
 				<div class="col-xs-10">
 					<div class="radio-inline">
 					    {{ Form::radio('status', 'todo', ($checklist_item->status == 'todo') ? 'true' : '') }}
-					    <div class="checklists_item_todo glyphicon glyphicon-ban-circle">todo</div>
+					    <div class="checklists_item_todo glyphicon glyphicon-remove-circle">todo</div>
 					</div>
 					<div class="radio-inline">
 					    {{ Form::radio('status', 'pending', ($checklist_item->status == 'pending') ? 'true' : '') }}
-					    <div class="checklists_item_pending glyphicon glyphicon-ok-circle">pending</div>
+					    <div class="checklists_item_pending glyphicon glyphicon-ban-circle">pending</div>
 					</div>
 					<div class="radio-inline">
 					    {{ Form::radio('status', 'completed', ($checklist_item->status == 'completed') ? 'true' : '') }}
