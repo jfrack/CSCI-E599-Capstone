@@ -27,6 +27,8 @@ Route::get('/employee/delete/{id}', 'EmployeeController@getDelete');
 Route::post('/employee/delete/{id}', 'EmployeeController@postDelete');
 Route::get('/employee/forms/{id}', 'EmployeeController@getForms');
 Route::post('/employee/forms', 'EmployeeController@postForms');
+Route::get('/employee/checklists/manager', 'EmployeeController@getChecklistsManager');
+Route::post('/employee/checklists/manager', 'EmployeeController@postChecklistsManager');
 Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
 Route::post('/employee/checklists', 'EmployeeController@postChecklists');
 Route::get('/employee/checklists/{employee_id}/add/{checklist_id}', 'EmployeeController@getChecklistsAdd');
