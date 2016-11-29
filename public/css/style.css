@@ -93,10 +93,12 @@ body {
 
 .employ_active {
     color: green;
+    font-size: 120%;
 }
 
 .employ_term {
     color: red;
+    font-size: 120%;
 }
 
 .checklists_item_todo {
