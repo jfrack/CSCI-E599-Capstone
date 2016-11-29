@@ -398,6 +398,27 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display edit employee's checklist item page
+    * GET: http://localhost/employee/checklists/$employee_id/edit/$checklist_id
+    */
+    public function getChecklistsEdit($employee_id, $checklist_id) {
+
+        $employee = Employee::where('id', '=', $employee_id)->first();
+        $checklist_item = DB::table('checklist_employee')
+                    ->where('employee_id', '=', $employee_id)
+                    ->where('checklist_id', '=', $checklist_id)
+                    ->first();
+        $checklist_item_info = DB::table('checklists')
+                    ->where('id', '=', $checklist_id)
+                    ->first();
+
+        return View::make('employee_checklists_edit')
+                ->with('employee', $employee)
+                ->with('checklist_item', $checklist_item)
+                ->with('checklist_item_info', $checklist_item_info);
+    }
+
+    /*
     * Display delete employee's checklist item confirmation page
     * GET: http://localhost/employee/checklists/$employee_id/delete/$checklist_id
     */
