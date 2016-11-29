@@ -20,15 +20,18 @@
 		</h3>
 		<br>
 		<h4><legend>
-			{{ $checklist_item_info->name }} - 
 			@if ($checklist_item->status == 'completed')
-				<div class="employ_active glyphicon glyphicon-ok-circle">{{ $checklist_item->status }}</div>
+				<div class="checklists_item_completed glyphicon glyphicon-ok-circle">{{ $checklist_item->status }}</div>
+			@elseif ($checklist_item->status == 'pending')
+				<div class="checklists_item_pending glyphicon glyphicon-ban-circle">{{ $checklist_item->status }}</div>
 			@else
-				<div class="employ_term glyphicon glyphicon-ban-circle">{{ $checklist_item->status }}</div>
+				<div class="checklists_item_todo glyphicon glyphicon-remove-circle">{{ $checklist_item->status }}</div>
 			@endif
+			<br><br>
+			{{ $checklist_item_info->name }}
 		</legend></h4>
 		{{ $checklist_item_info->description }} <br><br>
-		Comments:<br>
+		<strong>Comments</strong><br>
 		{{ $checklist_item->comments }}
 
 		<br><br>
