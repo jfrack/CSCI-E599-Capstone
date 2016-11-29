@@ -23,7 +23,7 @@
 			<br>
 			<h4><legend>{{ $checklist_item_info->name }}</legend></h4>
 			{{ $checklist_item_info->description }}
-			<br><br>
+			<br><br><br>
 
 			<div class='form-group row'>
 				{{ Form::label('status', 'Status', 'class=col-xs-2 col-form-label') }}
@@ -42,17 +42,20 @@
 					</div>
 				</div>
 			</div>
-			Comments:
 			<br>
-			{{ $checklist_item->comments }}
+			<div class='form-group row'>
+				{{ Form::label('comments', 'Comments', 'class=col-xs-2 col-form-label') }}
+			    <div class="col-xs-10">
+			    	{{ Form::textarea('comments', $checklist_item->comments, array('class' => 'form-control')) }}
+			    </div>
+		    </div>
 
 			<br><br>
-			{{ Form::open(array('url' => '/employee/checklists/$employee_id/edit/$checklist_id')) }}
-				{{ Form::hidden('employee_id', $employee->id) }}
-				{{ Form::hidden('checklist_id', $checklist_item->checklist_id) }}
-				{{ Form::hidden('checklist_created_at', $checklist_item->created_at) }}
-			    {{ Form::submit('Save Item', array('class' => 'btn btn-primary')) }}
-			    <a href=".." class="btn btn-warning">Cancel</a>
+			{{ Form::hidden('employee_id', $employee->id) }}
+			{{ Form::hidden('checklist_id', $checklist_item->checklist_id) }}
+			{{ Form::hidden('checklist_created_at', $checklist_item->created_at) }}
+		    {{ Form::submit('Save Item', array('class' => 'btn btn-primary')) }}
+		    <a href=".." class="btn btn-warning">Cancel</a>
 		</div>
 
 	{{ Form::close() }}
