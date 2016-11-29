@@ -99,6 +99,21 @@ body {
     color: red;
 }
 
+.checklists_item_todo {
+    color: red;
+    font-size: 120%;
+}
+
+.checklists_item_pending {
+    color: goldenrod;
+    font-size: 120%;
+}
+
+.checklists_item_completed {
+    color: green;
+    font-size: 120%;
+}
+
 .ui-datepicker {
     background: #333;
     border: 1px solid #555;
