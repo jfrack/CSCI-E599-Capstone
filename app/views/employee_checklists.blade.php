@@ -51,7 +51,7 @@
 								<!--
 								<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 								-->
-								<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+								<a href="/employee/checklists/{{ $employee->id }}/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 								<a href="/employee/checklists/{{ $employee->id }}/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 							</td>
 							<td>{{ $item->name }}</td>

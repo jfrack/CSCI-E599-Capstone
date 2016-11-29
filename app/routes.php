@@ -31,6 +31,8 @@ Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
 Route::post('/employee/checklists', 'EmployeeController@postChecklists');
 Route::get('/employee/checklists/{employee_id}/add/{checklist_id}', 'EmployeeController@getChecklistsAdd');
 Route::post('/employee/checklists/{employee_id}/add/{checklist_id}', 'EmployeeController@postChecklistsAdd');
+Route::get('/employee/checklists/{employee_id}/edit/{checklist_id}', 'EmployeeController@getChecklistsEdit');
+Route::post('/employee/checklists/{employee_id}/edit/{checklist_id}', 'EmployeeController@postChecklistsEdit');
 Route::get('/employee/checklists/{employee_id}/delete/{checklist_id}', 'EmployeeController@getChecklistsDelete');
 Route::post('/employee/checklists/{employee_id}/delete/{checklist_id}', 'EmployeeController@postChecklistsDelete');
 Route::get('/employee/checklists/{employee_id}/comments/{checklist_id}', 'EmployeeController@getChecklistsComments');
