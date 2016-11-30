@@ -13,14 +13,6 @@ class EmployeeController extends BaseController {
     }
 
     /*
-    * Display all employees
-    * GET: http://localhost/employee
-    */
-    public function getIndex() {
-
-    }
-
-    /*
     * Display employee add form
     * GET: http://localhost/employee/create
     */
@@ -330,7 +322,7 @@ class EmployeeController extends BaseController {
     */
     public function getChecklistsManager() {
     
-        $checklists = DB::table('checklists')->get();    
+        $checklists = Checklist::get();    
                     
         return View::make('employee_checklists_manager')
                 ->with('checklists', $checklists);
@@ -352,12 +344,12 @@ class EmployeeController extends BaseController {
     * Delete checklists item from manager
     * POST: http://localhost/employee/checklists/manager/delete/$checklist_id
     */
-    public function postChecklistsManagerDelete($checklist_id) {
+    public function postChecklistsManagerDelete() {
+
+        $checklist_id = Input::get('checklist_id');
     
         try {
-            #$checklist_item = Checklist::where('id', '=', $checklist_id)->first();
-
-            $checklist_item = DB::table('checklists')->where('id', '=', $checklist_id)->first();
+            $checklist_item = Checklist::where('id', '=', $checklist_id);
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklistsManager')
