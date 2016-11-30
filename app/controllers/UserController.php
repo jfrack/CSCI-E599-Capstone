@@ -86,7 +86,25 @@ class UserController extends BaseController {
         $user->update(array('status' => 0));
 
         # soft delete user account
-        $user->delete();
+        try {
+            $user->delete();
+        }
+        catch(exception $e) {
+            return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_error', 'ERROR UC2: Could not delete employee.');
+        }
+    }
+
+    /*
+    * Display security manager page
+    * GET: http://localhost/user/security_manager
+    */
+    public function getSecurityManager() {
+    
+        $roles = Role::get();    
+                    
+        return View::make('user_security_manager')
+                ->with('roles', $roles);
     }
 
 }
