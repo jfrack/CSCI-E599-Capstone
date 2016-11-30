@@ -1,0 +1,11 @@
+# DGMD E-599 - Capstone
+# Fall 2016
+
+##SBOT New Hire Portal
+
+# clear all caches
+composer dump-auto
+php artisan cache:clear
+
+# re-seed database
+php artisan migrate:refresh --seed
