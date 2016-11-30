@@ -317,6 +317,18 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display checklists manager page
+    * GET: http://localhost/employee/checklists/manager
+    */
+    public function getChecklistsManager() {
+    
+        $checklists = DB::table('checklists')->get();    
+                    
+        return View::make('checklists_manager')
+                ->with('checklists', $checklists);
+    }
+
+    /*
     * Display employee checklists page
     * GET: http://localhost/employee/checklists/$id
     */
