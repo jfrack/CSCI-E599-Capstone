@@ -276,8 +276,16 @@ class EmployeeController extends BaseController {
 
         # flag employee status as terminated
         $employee->update(array('status' => 0));
+        
+
         # soft delete employee
-        $employee->delete();
+        try {
+            $employee->delete();
+        }
+        catch(exception $e) {
+            return Redirect::action('IndexController@getIndex')
+            ->with('flash_message_error', 'ERROR EC22: Could not delete employee.');
+        }
 
         # Return to dashboard with a user message
         return Redirect::action('IndexController@getIndex')
@@ -353,11 +361,17 @@ class EmployeeController extends BaseController {
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklistsManager')
-                    ->with('flash_message_error', 'ERROR EC17: Could not delete checklist item.');
+                    ->with('flash_message_error', 'ERROR EC18: Could not delete checklist item.');
         }
 
         // soft delete checklist item
-        $checklist_item->delete();   
+        try {
+            $checklist_item->delete();   
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklistsManager')
+                    ->with('flash_message_error', 'ERROR EC19: Could not delete checklist item.');
+        }
         
         # return to checklists manager view            
         return Redirect::action('EmployeeController@getChecklistsManager')
@@ -484,7 +498,7 @@ class EmployeeController extends BaseController {
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
-            ->with('flash_message_error', 'ERROR EC17: Could not save checklist item.');
+            ->with('flash_message_error', 'ERROR EC20: Could not save checklist item.');
         }
 
         try {
@@ -496,7 +510,7 @@ class EmployeeController extends BaseController {
         }
         catch (exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
-            ->with('flash_message_error', 'ERROR EC18: Internal error updating checklist item.');
+            ->with('flash_message_error', 'ERROR EC21: Internal error updating checklist item.');
         }
 
 
@@ -548,7 +562,14 @@ class EmployeeController extends BaseController {
         }
 
         // soft delete checklist item
-        $checklist_item->delete();
+        try {
+            $checklist_item->delete();
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+            ->with('flash_message_error', 'ERROR EC17: Could not delete checklist item.');
+        }
+
 
         # Return to employee checklist view
         return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
