@@ -384,7 +384,7 @@ class EmployeeController extends BaseController {
                     ->orderBy('checklist_employee.updated_at', 'desc')
                     ->get();
 
-        $checklist = DB::table('checklists')->get();
+        $checklist = Checklist::get();
 
         $checklist_selection = array();
         foreach ($checklist as $item) {
