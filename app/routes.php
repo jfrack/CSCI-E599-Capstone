@@ -56,6 +56,9 @@ Route::get('/user/login', 'UserController@getLogin');
 Route::post('/user/login', 'UserController@postLogin');
 Route::get('/user/logout', 'UserController@getLogout');
 
+Route::get('/user/security_manager', 'UserController@getSecurityManager');
+Route::post('/user/security_manager', 'UserController@postSecurityManager');
+
 
 Route::get('/get-environment',function() {
 
