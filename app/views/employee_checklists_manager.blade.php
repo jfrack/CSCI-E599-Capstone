@@ -9,11 +9,11 @@
 	    <div class="error">{{ $message }}</div>
 	@endforeach
 
-	{{ Form::open(array('url' => '/employee/checklists/manager')) }}
+	{{ Form::open(array('url' => '/employee/checklists_manager')) }}
 
 		<div class="display_box_wide">
 
-			{{ Form::open(array('url' => '/employee/checklists/manager/add')) }}
+			{{ Form::open(array('url' => '/employee/checklists_manager/add')) }}
 			{{ Form::submit('Add Item', array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 			<br><br>
@@ -33,8 +33,8 @@
 								<!--
 								<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 								-->
-								<a href="/employee/checklists/manager/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-								<a href="/employee/checklists/manager/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+								<a href="/employee/checklists_manager/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+								<a href="/employee/checklists_manager/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 							</td>
 							<td>{{ $item->name }}</td>
 							<td>{{ $item->description }}</td>
