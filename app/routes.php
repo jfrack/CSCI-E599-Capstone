@@ -18,17 +18,28 @@ Route::get('/', 'IndexController@getIndex');
 # Employee controller
 Route::get('/employee/create', 'EmployeeController@getCreate');
 Route::post('/employee/create', 'EmployeeController@postCreate');
+
 Route::get('/employee/view/{id}', 'EmployeeController@getView');
+
 Route::get('/employee/edit/{id}', 'EmployeeController@getEdit');
 Route::post('/employee/edit', 'EmployeeController@postEdit');
+
 Route::get('/employee/reset/{id}', 'EmployeeController@getReset');
 Route::post('/employee/reset', 'EmployeeController@postReset');
+
 Route::get('/employee/delete/{id}', 'EmployeeController@getDelete');
 Route::post('/employee/delete/{id}', 'EmployeeController@postDelete');
+
 Route::get('/employee/forms/{id}', 'EmployeeController@getForms');
 Route::post('/employee/forms', 'EmployeeController@postForms');
-Route::get('/employee/checklists/manager', 'EmployeeController@getChecklistsManager');
-Route::post('/employee/checklists/manager', 'EmployeeController@postChecklistsManager');
+
+Route::get('/employee/checklists_manager', 'EmployeeController@getChecklistsManager');
+Route::post('/employee/checklists_manager', 'EmployeeController@postChecklistsManager');
+Route::get('/employee/checklists_manager/edit/{checklist_id}', 'EmployeeController@getChecklistsManagerEdit');
+Route::post('/employee/checklists_manager/edit/{checklist_id}', 'EmployeeController@postChecklistsManagerEdit');
+Route::get('/employee/checklists_manager/delete/{checklist_id}', 'EmployeeController@getChecklistsManagerDelete');
+Route::post('/employee/checklists_manager/delete/{checklist_id}', 'EmployeeController@postChecklistsManagerDelete');
+
 Route::get('/employee/checklists/{id}', 'EmployeeController@getChecklists');
 Route::post('/employee/checklists', 'EmployeeController@postChecklists');
 Route::get('/employee/checklists/{employee_id}/add/{checklist_id}', 'EmployeeController@getChecklistsAdd');
