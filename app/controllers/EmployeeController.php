@@ -324,7 +324,7 @@ class EmployeeController extends BaseController {
     
         $checklists = DB::table('checklists')->get();    
                     
-        return View::make('checklists_manager')
+        return View::make('employee_checklists_manager')
                 ->with('checklists', $checklists);
     }
 
