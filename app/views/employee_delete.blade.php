@@ -63,6 +63,10 @@
 		Gender: {{ $employee->gender }} <br>
 
 		<br>
+		<div class='alert alert-danger'>
+			<span class="glyphicon glyphicon-exclamation-sign"></span>
+			Are you sure to delete employee from system?
+		</div>
 		{{ Form::open(array('url' => '/employee/delete/$id')) }}
 			{{ Form::hidden('id', $employee->id) }}
 		    {{ Form::submit('Delete Employee', array('class' => 'btn btn-primary')) }}
