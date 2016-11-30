@@ -13,8 +13,9 @@
 
 		<div class="display_box_wide">
 
-			{{ Form::open(array('url' => '/employee/checklists/$employee->id/add/$item->id')) }}
-			{{ Form::submit('Add Item', array('class' => 'btn btn-primary button-layout')) }}
+			{{ Form::open(array('url' => '/employee/checklists/manager/add')) }}
+			{{ Form::submit('Add Item', array('class' => 'btn btn-primary')) }}
+			{{ Form::close() }}
 			<br><br>
 		
 			<table class="table table-bordered table-hover">
@@ -32,8 +33,8 @@
 								<!--
 								<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
 								-->
-								<a href="/employee/checklists/{{ $item->id }}/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-								<a href="/employee/checklists/{{ $item->id }}/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+								<a href="/employee/checklists/manager/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+								<a href="/employee/checklists/manager/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 							</td>
 							<td>{{ $item->name }}</td>
 							<td>{{ $item->description }}</td>
@@ -45,7 +46,5 @@
 
 			<br>
 			<a href="/" class="btn btn-primary">Back</a>
-		</div>
-
-	{{ Form::close() }}	
+		</div>	
 @stop
