@@ -329,6 +329,42 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display delete checklists item confirmation page
+    * GET: http://localhost/employee/checklists/manager/delete/$checklist_id
+    */
+    public function getChecklistsManagerDelete($checklist_id) {
+    
+        $checklist_item = Checklist::where('id', '=', $checklist_id)->first();
+                    
+        return View::make('employee_checklists_manager_delete')
+                ->with('checklist_item', $checklist_item);
+    }
+
+    /*
+    * Delete checklists item from manager
+    * POST: http://localhost/employee/checklists/manager/delete/$checklist_id
+    */
+    public function postChecklistsManagerDelete($checklist_id) {
+    
+        try {
+            #$checklist_item = Checklist::where('id', '=', $checklist_id)->first();
+
+            $checklist_item = DB::table('checklists')->where('id', '=', $checklist_id)->first();
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklistsManager')
+                    ->with('flash_message_error', 'ERROR EC17: Could not delete checklist item.');
+        }
+
+        // soft delete checklist item
+        $checklist_item->delete();   
+        
+        # return to checklists manager view            
+        return Redirect::action('EmployeeController@getChecklistsManager')
+                ->with('flash_message_success', 'Checklist item has been deleted.');
+    }
+
+    /*
     * Display employee checklists page
     * GET: http://localhost/employee/checklists/$id
     */
