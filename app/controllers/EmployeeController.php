@@ -384,7 +384,11 @@ class EmployeeController extends BaseController {
                     ->orderBy('checklist_employee.updated_at', 'desc')
                     ->get();
 
-        $checklist = Checklist::get();
+        # This gets all checklist items even the deleted ones
+        $checklist = DB::table('checklists')->get();
+
+        # This is correct but breaks the add item down the line --need to fix
+        #$checklist = Checklist::get();
 
         $checklist_selection = array();
         foreach ($checklist as $item) {
@@ -429,7 +433,8 @@ class EmployeeController extends BaseController {
     public function postChecklistsAdd() {
 
         $employee_id = Input::get('employee_id');
-        $checklist_id = Input::get('checklist_id');
+        $checklist_selection = Input::get('checklist_selection');
+        $checklist_id = $checklist_selection;
 
         try {
             # Insert item into checklist_employee table
