@@ -21,6 +21,8 @@
 			@endif
 		</h3>
 		<br>
+		<a href="" class="btn btn-primary">Add Form</a>
+		<br><br>
 
 		<table class="table table-bordered table-hover">
 			<th>Actions</th>
