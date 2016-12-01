@@ -25,10 +25,7 @@
 			<div class="container-large">
 				<div class="container-small">
 					{{ Form::label('role_selection', 'role_selection', 'class=col-xs-2 col-form-label hidden') }}
-					{{--
-					{{ Form::select('role_selection', $roles->name, null, array('class' => 'form-control')) }}
-					--}}
-					{{ Form::select('role_selection', array('foo'), null, array('class' => 'form-control')) }}
+					{{ Form::select('role_selection', $role_selection, null, array('class' => 'form-control')) }}
 				</div>
 				{{ Form::hidden('employee_id', $employee->id) }}
 		    	{{ Form::submit('Add Role', array('class' => 'btn btn-primary button-layout')) }}
