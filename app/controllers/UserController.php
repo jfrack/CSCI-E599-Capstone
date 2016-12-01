@@ -107,4 +107,25 @@ class UserController extends BaseController {
                 ->with('roles', $roles);
     }
 
+    /*
+    * Display employee's security page
+    * GET: http://localhost/user/security/$user_id
+    */
+    public function getSecurity($user_id) {
+
+        $employee = Employee::where('id', '=', $user_id)->first();
+
+        $roles = Role::get();
+    
+        $role_user = DB::table('roles')
+                    ->join('role_user', 'roles.id', '=', 'role_user.role_id')
+                    ->where('user_id', '=', $user_id)
+                    ->get();    
+                    
+        return View::make('user_security')
+                ->with('employee', $employee)
+                ->with('roles', $roles)
+                ->with('role_user', $role_user);
+    }
+
 }
