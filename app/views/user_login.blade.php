@@ -35,7 +35,8 @@
 
 		<br><br>
 		<div class="text-background">
-			* If you have any questions or need assistance, please contact Human Resources at 1-800-204-2222 ext. 1489 or email
+			* If you have any questions or need assistance, please contact Human Resources
+			<br> at 1-800-204-2222 ext. 1489 or email
 			<a href="mailto:employment@texasbar.com" target="_blank">employment@texasbar.com</a>.
 		</div>
 	{{ Form::close() }}
