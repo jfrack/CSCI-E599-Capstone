@@ -116,6 +116,15 @@ class UserController extends BaseController {
         $employee = Employee::where('id', '=', $user_id)->first();
 
         $roles = Role::get();
+
+        $role_selection = array();
+        foreach ($roles as $role) {
+            $role_selection[] = $role->name;
+        }
+
+        # start array at index 1 instead of 0
+        array_unshift($role_selection, 'phoney');
+        unset($role_selection[0]);
     
         $role_user = DB::table('roles')
                     ->join('role_user', 'roles.id', '=', 'role_user.role_id')
@@ -124,7 +133,7 @@ class UserController extends BaseController {
                     
         return View::make('user_security')
                 ->with('employee', $employee)
-                ->with('roles', $roles)
+                ->with('role_selection', $role_selection)
                 ->with('role_user', $role_user);
     }
 
