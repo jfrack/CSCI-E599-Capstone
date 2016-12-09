@@ -53,7 +53,7 @@ Route::post('/employee/checklists/{employee_id}/comments/{checklist_id}', 'Emplo
 
 # User controller
 Route::get('/user/help', 'UserController@getHelp');
-Route::get('/user/help', 'UserController@postHelp');
+Route::post('/user/help', 'UserController@postHelp');
 
 Route::get('/user/login', 'UserController@getLogin');
 Route::post('/user/login', 'UserController@postLogin');

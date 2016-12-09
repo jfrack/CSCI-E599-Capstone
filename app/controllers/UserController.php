@@ -22,6 +22,16 @@ class UserController extends BaseController {
 
     }
 
+    # GET: http://localhost/user/help
+    public function getHelp() {
+        return View::make('user_help');
+    }
+
+    # POST: http://localhost/user/help
+    public function postHelp() {
+        return;
+    }
+
     # GET: http://localhost/user/login
     public function getLogin() {
         return View::make('user_login');
