@@ -150,8 +150,9 @@ class UserController extends BaseController {
     # POST: http://localhost/user/add/$user_id/role/$role_id
     public function postAddRole() {
 
-        $user_id = Input::get('user_id');
-        $role_id = Input::get('role_id');
+        $user_id = Input::get('employee_id');
+        $role_selection = Input::get('role_selection');
+        $role_id = $role_selection;
 
         try {
             # Insert item into role_user table

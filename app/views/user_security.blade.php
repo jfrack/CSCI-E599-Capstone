@@ -21,7 +21,7 @@
 		</h3>
 		<br>
 
-		{{ Form::open(array('url' => '/user/security/$employee->id/add/$role->id')) }}
+		{{ Form::open(array('url' => '/user/security/$user->id/add/$role_selection')) }}
 			<div class="container-large">
 				<div class="container-small">
 					{{ Form::label('role_selection', 'role_selection', 'class=col-xs-2 col-form-label hidden') }}
