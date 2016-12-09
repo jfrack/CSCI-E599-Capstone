@@ -52,6 +52,9 @@ Route::get('/employee/checklists/{employee_id}/comments/{checklist_id}', 'Employ
 Route::post('/employee/checklists/{employee_id}/comments/{checklist_id}', 'EmployeeController@postChecklistsComments');
 
 # User controller
+Route::get('/user/help', 'UserController@getHelp');
+Route::get('/user/help', 'UserController@postHelp');
+
 Route::get('/user/login', 'UserController@getLogin');
 Route::post('/user/login', 'UserController@postLogin');
 Route::get('/user/logout', 'UserController@getLogout');
