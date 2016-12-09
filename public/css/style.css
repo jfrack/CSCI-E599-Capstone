@@ -86,6 +86,10 @@ body {
     margin-left: 25px;
 }
 
+.help_button {
+    float: right;
+}
+
 .copy_button {
     position: absolute;
     right: 125px;

@@ -33,8 +33,11 @@
 	@endif
 	-->
 
+	<a href="/user/help" class="btn btn-success help_button"><strong>Help</strong></a>
 	<a href='/'><img class='logo' src='/img/logo-sbot.gif' alt='SBOT logo'></a>
-	<h1>New Hire Portal</h1><br><br>
+	<h1>New Hire Portal</h1>
+
+	<br><br>
 
 	@if(Session::get('flash_message_success'))
 		<div class='alert alert-success'><span class="glyphicon glyphicon-ok-sign"></span> {{ Session::get('flash_message_success') }} </div>
