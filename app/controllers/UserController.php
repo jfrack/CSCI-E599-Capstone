@@ -147,4 +147,27 @@ class UserController extends BaseController {
                 ->with('role_user', $role_user);
     }
 
+    # POST: http://localhost/user/add/$user_id/role/$role_id
+    public function postAddRole() {
+
+        $user_id = Input::get('user_id');
+        $role_id = Input::get('role_id');
+
+        try {
+            # Insert item into role_user table
+            $user_role = Role_User::create(array(
+                        'user_id' => $user_id,
+                        'role_id' => $role_id));
+            $user_role->save();
+        }
+        catch (exception $e) {
+            return Redirect::action('UserController@getSecurity', ['user_id' => $user_id])
+            ->with('flash_message_error', 'ERROR UC3: Internal error adding role.');
+        }
+
+        # Return to user security view
+        return Redirect::action('UserController@getSecurity', ['user_id' => $user_id])
+                ->with('flash_message_success', 'User role has been added.');
+    }
+
 }
