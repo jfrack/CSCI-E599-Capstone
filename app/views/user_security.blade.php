@@ -44,7 +44,7 @@
 				@foreach($role_user as $role)
 					<tr>
 						<td>
-							<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+							<a href="/user/security/{{ $employee->id }}/delete/{{ $role->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 						</td>
 						<td>{{ $role->name }}</td>
 						<td>{{ $role->description }}</td>

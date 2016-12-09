@@ -171,4 +171,40 @@ class UserController extends BaseController {
                 ->with('flash_message_success', 'User role has been added.');
     }
 
+        /*
+    * Soft delete users's security role
+    * POST: http://localhost/user/delete/$user_id/role/$role_id
+    */
+    public function getDeleteRole($user_id, $role_id) {
+
+/*
+        $user_id = Input::get('user_id');
+        $role_id = Input::get('role_id');
+*/
+
+        try {
+            $security_role = DB::table('role_user')
+                        ->where('user_id', '=', $user_id)
+                        ->where('role_id', '=', $role_id);
+        }
+        catch(exception $e) {
+            return Redirect::action('UserController@getSecurity', ['user_id' => $user_id])
+            ->with('flash_message_error', 'ERROR UC4: Could not delete user role.');
+        }
+
+        // soft delete security role
+        try {
+            $security_role->delete();
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+            ->with('flash_message_error', 'ERROR EC17: Could not delete checklist item.');
+        }
+
+
+        # Return to user security view
+        return Redirect::action('UserController@getSecurity', ['user_id' => $user_id])
+                ->with('flash_message_success', 'User role has been deleted.');
+    }
+
 }

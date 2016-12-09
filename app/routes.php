@@ -67,6 +67,9 @@ Route::post('/user/security', 'UserController@postSecurity');
 
 Route::post('/user/security/{user_id}/add/{role_id}', 'UserController@postAddRole');
 
+Route::get('/user/security/{user_id}/delete/{role_id}', 'UserController@getDeleteRole');
+
+
 Route::get('/get-environment',function() {
 
     echo "Environment: " . App::environment();
