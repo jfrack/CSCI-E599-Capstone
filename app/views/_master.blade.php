@@ -33,7 +33,11 @@
 	@endif
 	-->
 
-	<a href="/user/help" class="btn btn-success help_button"><strong>Help</strong></a>
+	<!-- display help button only to logged in users -->
+	@if(Auth::user())
+		<a href="/user/help" class="btn btn-success help_button"><strong>Help</strong></a>
+	@endif
+
 	<a href='/'><img class='logo' src='/img/logo-sbot.gif' alt='SBOT logo'></a>
 	<h1>New Hire Portal</h1>
 
