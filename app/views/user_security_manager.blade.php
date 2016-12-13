@@ -15,11 +15,11 @@
 
 			{{-- todo
 			{{ Form::open(array('url' => '/user/security_manager/add')) }}
-			{{ Form::submit('Add Role', array('class' => 'btn btn-primary')) }}
+			{{ Form::submit('Add Rolex', array('class' => 'btn btn-primary', 'disabled' => 'disabled')) }}
 			{{ Form::close() }}
 			--}}
 
-			<a href="" class="btn btn-primary">Add Role</a>
+			<a href="" class="btn btn-primary disabled">Add Role</a>
 			<br><br>
 		
 			<table class="table table-bordered table-hover">
@@ -39,8 +39,8 @@
 								<a href="/user/security_manager/delete/{{ $role->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
 								--}}
 
-								<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-								<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>								
+								<a href="" class="btn btn-default btn-xs disabled"><span class="glyphicon glyphicon-pencil"> Edit</a>
+								<a href="" class="btn btn-default btn-xs disabled"><span class="glyphicon glyphicon-trash"> Delete</a>								
 							</td>
 							<td>{{ $role->name }}</td>
 							<td>{{ $role->description }}</td>
