@@ -338,6 +338,53 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display edit checklists item page
+    * GET: http://localhost/employee/checklists_manager/edit/$checklist_id
+    */
+    public function getChecklistsManagerEdit($checklist_id) {
+    
+        $checklist_item = Checklist::where('id', '=', $checklist_id)->first();
+                    
+        return View::make('employee_checklists_manager_edit')
+                ->with('checklist_item', $checklist_item);
+    }
+
+    /*
+    * Delete checklists item from manager
+    * POST: http://localhost/employee/checklists_manager/edit/$checklist_id
+    */
+    public function postChecklistsManagerEdit() {
+
+        $checklist_id = Input::get('checklist_id');
+        $name = Input::get('item');
+        $description = Input::get('description');
+    
+        try {
+            $checklist_item = Checklist::findOrFail($checklist_id);
+        }
+        catch(exception $e) {
+            return Redirect::action('EmployeeController@getChecklistsManager')
+                    ->with('flash_message_error', 'ERROR EC20: Could not edit checklist item.');
+        }
+
+        try {
+            # Update checklists table
+            $checklist_item->update(array(
+                        'name' => $name,
+                        'description' => $description));
+            $checklist_item->save();
+        }
+        catch (exception $e) {
+            return Redirect::action('IndexController@getIndex')
+                    ->with('flash_message_error', 'ERROR EC21: Internal error editing checklist item.');
+        }
+        
+        # return to checklists manager view            
+        return Redirect::action('EmployeeController@getChecklistsManager')
+                ->with('flash_message_success', 'Checklist item has been saved.');
+    }
+
+    /*
     * Display delete checklists item confirmation page
     * GET: http://localhost/employee/checklists_manager/delete/$checklist_id
     */
