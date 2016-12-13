@@ -9,7 +9,7 @@ return array(
             'host'      => 'localhost',
             'database'  => 'sbot_nhp',
             'username'  => 'root',
-            'password'  => 'sgWo7Jtxs9',
+            'password'  => 'b25fcbbb834934b86b8c753f1765bf7274eaf516c38af67c',
         ),
 
     ),
