@@ -317,8 +317,17 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display forms manager page
+    * GET: http://localhost/employee/forms_manager
+    */
+    public function getFormsManager() {   
+                    
+        return View::make('employee_forms_manager');
+    }
+
+    /*
     * Display checklists manager page
-    * GET: http://localhost/employee/checklists/manager
+    * GET: http://localhost/employee/checklists_manager
     */
     public function getChecklistsManager() {
     
@@ -330,7 +339,7 @@ class EmployeeController extends BaseController {
 
     /*
     * Display delete checklists item confirmation page
-    * GET: http://localhost/employee/checklists/manager/delete/$checklist_id
+    * GET: http://localhost/employee/checklists_manager/delete/$checklist_id
     */
     public function getChecklistsManagerDelete($checklist_id) {
     
@@ -342,7 +351,7 @@ class EmployeeController extends BaseController {
 
     /*
     * Delete checklists item from manager
-    * POST: http://localhost/employee/checklists/manager/delete/$checklist_id
+    * POST: http://localhost/employee/checklists_manager/delete/$checklist_id
     */
     public function postChecklistsManagerDelete() {
 
