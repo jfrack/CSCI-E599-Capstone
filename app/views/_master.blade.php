@@ -33,7 +33,7 @@
 	@endif
 	-->
 
-	<!-- display help button only to logged in users -->
+	<!-- Display help button only to authenticated users -->
 	@if(Auth::user())
 		<a href="/user/help" class="btn btn-success help_button"><strong>Help</strong></a>
 	@endif

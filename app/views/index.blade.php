@@ -7,7 +7,7 @@
 @section('nav')
 	<h4>Current User: {{ Auth::user()->username }}</h4>
 	<a href="/employee/create" class="btn btn-primary">Add Employee</a>
-	<a href="/" class="btn btn-primary">Manage Forms</a>
+	<a href="/employee/forms_manager" class="btn btn-primary">Manage Forms</a>
 	<a href="/employee/checklists_manager" class="btn btn-primary">Manage Checklists</a>
 	<a href="/user/security_manager" class="btn btn-primary">System Security</a>
 	<a href="/user/logout" class="btn btn-warning">Logout</a>
