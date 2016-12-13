@@ -9,3 +9,9 @@ php artisan cache:clear
 
 # re-seed database
 php artisan migrate:refresh --seed
+
+# Apache subdomain config file
+/etc/apache2/sites-enabled/000-default.conf
+
+# restart apache on DO
+service apache2 restart
