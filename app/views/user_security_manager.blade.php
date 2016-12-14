@@ -15,7 +15,7 @@
 
 			{{-- todo
 			{{ Form::open(array('url' => '/user/security_manager/add')) }}
-			{{ Form::submit('Add Rolex', array('class' => 'btn btn-primary', 'disabled' => 'disabled')) }}
+			{{ Form::submit('Add Rolex', array('class' => 'btn btn-primary')) }}
 			{{ Form::close() }}
 			--}}
 

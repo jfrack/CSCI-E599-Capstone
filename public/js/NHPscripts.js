@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
 	$(function() {
-		$( ".datepicker" ).datepicker({
+		$( '.datepicker' ).datepicker({
 			changeMonth: true,
 			changeYear: true
 		});
+
+		$( '#employeeTable' ).DataTable();
 	});
 
 });

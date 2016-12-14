@@ -6,19 +6,29 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 	<meta name="keywords" content="SBOT new hire portal">
 	<meta name="description" content="SBOT New Hire Portal">
-	<!-- Get jquery from CDN -->
+
+	<!-- CSS -->
+	<!-- Get jQuery UI theme from CDN -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/humanity/jquery-ui.css">
+	<!-- Get Bootswatch theme from CDN -->
+	<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css">
+	<!-- Get DataTables theme from CDN -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+	<!-- Get local CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+
+
+	<!-- JavaScript -->
+	<!-- Get jQuery from CDN -->	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<!-- Get jQuery UI from CDN -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<!-- Get Bootstrap from CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- Get Bootswatch theme from CDN -->
-	<!--
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
-	-->
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css">
-	<!-- Get local CSS -->
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+	<!-- Get DataTables for table sorting from CDN -->
+	<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
 
 	@yield('head')
 
