@@ -15,7 +15,7 @@
 @stop
 
 @section('content')
-	<table id="employeeTable" class="table table-bordered table-hover display">
+	<table id="employeeTable" class="table table-striped table-bordered">
 		<thead>
 			<tr>
 				<th>Actions</th>
