@@ -3,9 +3,6 @@
 
 ##SBOT New Hire Portal
 
-## Live URL
-* http://
-
 ## Description
 The **SBOT New Hire Portal** (State Bar of Texas) is a web application designed to assist the HR
 department with employee onboarding.  The application allows users to login, read and acknowledge
