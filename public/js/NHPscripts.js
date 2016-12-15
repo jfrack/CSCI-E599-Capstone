@@ -4,7 +4,7 @@ $(document).ready(function() {
 		$( '.datepicker' ).datepicker({
 			changeMonth: true,
 			changeYear: true,
-			minDate: "-20Y", // datepicker calendar only goes back to 2006 max
+			yearRange: "-100:+1",
 			maxDate: +365
 		});
 
