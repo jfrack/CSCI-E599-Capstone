@@ -39,7 +39,9 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	
+	# 'timezone' => 'UTC',
+	'timezone' => 'America/Chicago', # US Central
 
 	/*
 	|--------------------------------------------------------------------------
