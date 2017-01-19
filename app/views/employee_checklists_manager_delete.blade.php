@@ -15,7 +15,7 @@
 		<br><br>
 		<div class='alert alert-danger'>
 			<span class="glyphicon glyphicon-exclamation-sign"></span>
-			Are you sure to delete item from checklists manager?
+			Are you sure you want to delete this item from the checklist manager?
 		</div>
 		<br>
 		{{ Form::open(array('url' => '/employee/checklists_manager/delete/$checklist_id')) }}

@@ -491,15 +491,25 @@ class EmployeeController extends BaseController {
         $employee_id = Input::get('employee_id');
         $checklist_selection = Input::get('checklist_selection');
         $checklist_id = $checklist_selection;
-
+        $already_exists = DB::table('checklist_employee')
+                    ->where('employee_id', '=', $employee_id)
+                    ->where('checklist_id', '=', $checklist_id)
+                    ->first();
         try {
-            # Insert item into checklist_employee table
-            $checklist_item = Checklist_Employee::create(array(
-                        'employee_id' => $employee_id,
-                        'checklist_id' => $checklist_id,
-                        'status' => 'todo',
-                        'comments' => ''));
-            $checklist_item->save();
+            # First check if employee already has that item assigned
+            if ($already_exists) {
+                return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
+                    ->with('flash_message_error', 'Selected checklist item already assigned to employee.');
+            }
+            else {
+                # Insert item into checklist_employee table
+                $checklist_item = Checklist_Employee::create(array(
+                            'employee_id' => $employee_id,
+                            'checklist_id' => $checklist_id,
+                            'status' => 'todo',
+                            'comments' => ''));
+                $checklist_item->save();
+            }
         }
         catch (exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
