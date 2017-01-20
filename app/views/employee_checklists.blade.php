@@ -35,7 +35,7 @@
 				<br><br><br>
 			{{ Form::close() }}
 		
-			<table id="employeeChecklistsTable"  class="table table-bordered table-hover">
+			<table id="employeeChecklistsTable" class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>Actions</th>

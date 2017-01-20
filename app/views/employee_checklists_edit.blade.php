@@ -53,7 +53,6 @@
 			<br><br>
 			{{ Form::hidden('employee_id', $employee->id) }}
 			{{ Form::hidden('checklist_id', $checklist_item->checklist_id) }}
-			{{ Form::hidden('checklist_created_at', $checklist_item->created_at) }}
 		    {{ Form::submit('Save Item', array('class' => 'btn btn-primary')) }}
 		    <a href=".." class="btn btn-warning">Cancel</a>
 		</div>
