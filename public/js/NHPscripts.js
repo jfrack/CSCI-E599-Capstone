@@ -11,7 +11,9 @@ $(document).ready(function() {
 		// Add column sorting on tables
 		$( '#employeeTable' ).DataTable();
 		$( '#employeeChecklistsTable' ).DataTable();
+		$( '#employeeChecklistsManagerTable' ).DataTable();
 		$( '#employeeFormsTable' ).DataTable();
+		$( '#employeeFormsManagerTable' ).DataTable();
 	});
 
 });
