@@ -8,7 +8,10 @@ $(document).ready(function() {
 			maxDate: +365
 		});
 
+		// Add column sorting on tables
 		$( '#employeeTable' ).DataTable();
+		$( '#employeeChecklistsTable' ).DataTable();
+		$( '#employeeFormsTable' ).DataTable();
 	});
 
 });

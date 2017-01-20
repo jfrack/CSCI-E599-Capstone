@@ -24,44 +24,50 @@
 		<a href="" class="btn btn-primary">Add Form</a>
 		<br><br>
 
-		<table class="table table-bordered table-hover">
-			<th>Actions</th>
-			<th>Form</th>
-			<th>Status</th>
-			<th>Date Completed</th>
-			<tr>
-				<td>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
-				</td>
-				<td>ERS Benefits Enrollment</td>
-				<td><div class="employ_active glyphicon glyphicon-ok">completed</div></td>
-				<td>{{ BaseController::convertDateView($employee->start_date) }}</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
-				</td>
-				<td>IRS W-4</td>
-				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
-				<td>n/a</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
-					<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
-				</td>
-				<td>Employee Handbook</td>
-				<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
-				<td>n/a</td>
-			</tr>
+		<table id="employeeFormsTable" class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Actions</th>
+					<th>Form</th>
+					<th>Status</th>
+					<th>Date Completed</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					</td>
+					<td>ERS Benefits Enrollment</td>
+					<td><div class="employ_active glyphicon glyphicon-ok">completed</div></td>
+					<td>{{ BaseController::convertDateView($employee->start_date) }}</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					</td>
+					<td>IRS W-4</td>
+					<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
+					<td>n/a</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"> View</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"> Download</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-print"> Print</a>
+						<a href="" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+					</td>
+					<td>Employee Handbook</td>
+					<td><div class="employ_term glyphicon glyphicon-remove">todo</div></td>
+					<td>n/a</td>
+				</tr>
+			</tbody>
 		</table>
 
 		<br>

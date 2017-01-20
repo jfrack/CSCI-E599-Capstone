@@ -65,7 +65,7 @@
 		<br>
 		<div class='alert alert-danger'>
 			<span class="glyphicon glyphicon-exclamation-sign"></span>
-			Are you sure to delete employee from system?
+			Are you sure you want to delete employee?
 		</div>
 		{{ Form::open(array('url' => '/employee/delete/$id')) }}
 			{{ Form::hidden('id', $employee->id) }}

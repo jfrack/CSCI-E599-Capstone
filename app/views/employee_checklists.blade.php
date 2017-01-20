@@ -35,40 +35,45 @@
 				<br><br><br>
 			{{ Form::close() }}
 		
-			<table class="table table-bordered table-hover">
-				<th>Actions</th>
-				<th>Item</th>
-				<th>Description</th>
-				<th>Status</th>
-				<th>Last Update</th>
-
-				@if(sizeof($checklist_employee) == 0)
-				<tr><td>No items found</td></tr>
-				@else
-					@foreach($checklist_employee as $item)
-						<tr>
-							<td>
-								<!--
-								<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-								-->
-								<a href="/employee/checklists/{{ $employee->id }}/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
-								<a href="/employee/checklists/{{ $employee->id }}/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
-							</td>
-							<td>{{ $item->name }}</td>
-							<td>{{ $item->description }}</td>
-							<td>
-								@if ($item->status == 'completed')
-									<div class="checklists_item_completed glyphicon glyphicon-ok-circle">{{ $item->status }}</div>
-								@elseif ($item->status == 'pending')
-									<div class="checklists_item_pending glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
-								@else
-									<div class="checklists_item_todo glyphicon glyphicon-remove-circle">{{ $item->status }}</div>
-								@endif
-							</td>
-							<td>{{ BaseController::convertDateTimeView($item->updated_at) }}</td>
-						</tr>
-					@endforeach
-				@endif
+			<table id="employeeChecklistsTable"  class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Actions</th>
+						<th>Item</th>
+						<th>Description</th>
+						<th>Status</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if(sizeof($checklist_employee) == 0)
+					<tr><td>No items found</td></tr>
+					@else
+						@foreach($checklist_employee as $item)
+							<tr>
+								<td>
+									<!--
+									<a href="/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+									-->
+									<a href="/employee/checklists/{{ $employee->id }}/edit/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</a>
+									<a href="/employee/checklists/{{ $employee->id }}/delete/{{ $item->id }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-trash"> Delete</a>
+								</td>
+								<td>{{ $item->name }}</td>
+								<td>{{ $item->description }}</td>
+								<td>
+									@if ($item->status == 'completed')
+										<div class="checklists_item_completed glyphicon glyphicon-ok-circle">{{ $item->status }}</div>
+									@elseif ($item->status == 'pending')
+										<div class="checklists_item_pending glyphicon glyphicon-ban-circle">{{ $item->status }}</div>
+									@else
+										<div class="checklists_item_todo glyphicon glyphicon-remove-circle">{{ $item->status }}</div>
+									@endif
+								</td>
+								<td>{{ BaseController::convertDateTimeView($item->updated_at) }}</td>
+							</tr>
+						@endforeach
+					@endif
+				</tbody>
 			</table>
 
 			<br>
