@@ -150,7 +150,7 @@ class EmployeeController extends BaseController {
         }
 
         try {
-            # Insert into contacts table
+            # Update contacts table
             $contact->update(array(
                         'employee_id' => $employee->id,
                         'type' => 'primary',
@@ -350,7 +350,7 @@ class EmployeeController extends BaseController {
     }
 
     /*
-    * Delete checklists item from manager
+    * Edit a checklists item in manager
     * POST: http://localhost/employee/checklists_manager/edit/$checklist_id
     */
     public function postChecklistsManagerEdit() {
@@ -434,23 +434,29 @@ class EmployeeController extends BaseController {
 
         $employee = Employee::where('id', '=', $employee_id)->first();
     
+        /*
         $checklist_employee = DB::table('checklists')
                     ->join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
                     ->where('employee_id', '=', $employee->id)
                     ->orderBy('checklist_employee.updated_at', 'desc')
                     ->get();
+        */
 
-        # This gets all checklist items even the deleted ones
-        $checklist = DB::table('checklists')->get();
+        $checklist_employee = Checklist::join('checklist_employee', 'checklists.id', '=', 'checklist_employee.checklist_id')
+            ->where('employee_id', '=', $employee->id)
+            ->where('checklist_employee.deleted_at', '=', NULL)
+            ->orderBy('checklist_employee.updated_at', 'desc')
+            ->get();
 
-        # This is correct but breaks the add item down the line --need to fix
-        #$checklist = Checklist::get();
+        $checklist = Checklist::get();
 
         $checklist_selection = array();
         foreach ($checklist as $item) {
             $checklist_selection[] = $item->name;
         }
 
+        
+        # TODO - breaks if checklist item is removed from manager
         # start array at index 1 instead of 0
         array_unshift($checklist_selection, 'phoney');
         unset($checklist_selection[0]);    
@@ -491,10 +497,10 @@ class EmployeeController extends BaseController {
         $employee_id = Input::get('employee_id');
         $checklist_selection = Input::get('checklist_selection');
         $checklist_id = $checklist_selection;
-        $already_exists = DB::table('checklist_employee')
-                    ->where('employee_id', '=', $employee_id)
-                    ->where('checklist_id', '=', $checklist_id)
-                    ->first();
+        $already_exists = Checklist_Employee::where('employee_id', '=', $employee_id)
+                                            ->where('checklist_id', '=', $checklist_id)
+                                            ->first();
+
         try {
             # First check if employee already has that item assigned
             if ($already_exists) {
@@ -529,13 +535,10 @@ class EmployeeController extends BaseController {
     public function getChecklistsEdit($employee_id, $checklist_id) {
 
         $employee = Employee::where('id', '=', $employee_id)->first();
-        $checklist_item = DB::table('checklist_employee')
-                    ->where('employee_id', '=', $employee_id)
-                    ->where('checklist_id', '=', $checklist_id)
-                    ->first();
-        $checklist_item_info = DB::table('checklists')
-                    ->where('id', '=', $checklist_id)
-                    ->first();
+        $checklist_item = Checklist_Employee::where('employee_id', '=', $employee_id)
+                                            ->where('checklist_id', '=', $checklist_id)
+                                            ->first();
+        $checklist_item_info = Checklist::where('id', '=', $checklist_id)->first();
 
         return View::make('employee_checklists_edit')
                 ->with('employee', $employee)
@@ -551,13 +554,11 @@ class EmployeeController extends BaseController {
 
         $employee_id = Input::get('employee_id');
         $checklist_id = Input::get('checklist_id');
-        $checklist_created_at = Input::get('checklist_created_at');
         
         try {
-            $checklist_item = DB::table('checklist_employee')
-                        ->where('employee_id', '=', $employee_id)
-                        ->where('checklist_id', '=', $checklist_id)
-                        ->where('created_at', '=', $checklist_created_at);
+            $checklist_item = Checklist_Employee::where('employee_id', '=', $employee_id)
+                ->where('checklist_id', '=', $checklist_id);
+                #>first();
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
@@ -569,11 +570,11 @@ class EmployeeController extends BaseController {
             $checklist_item->update(array(
                         'status' => Input::get('status'),
                         'comments' => Input::get('comments')));
-            #$checklist_item->save();
+            #checklist_item->save();
         }
         catch (exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
-            ->with('flash_message_error', 'ERROR EC21: Internal error updating checklist item.');
+            ->with('flash_message_error', 'ERROR EC23: Internal error updating checklist item.');
         }
 
 
@@ -589,13 +590,10 @@ class EmployeeController extends BaseController {
     public function getChecklistsDelete($employee_id, $checklist_id) {
 
         $employee = Employee::where('id', '=', $employee_id)->first();
-        $checklist_item = DB::table('checklist_employee')
-                    ->where('employee_id', '=', $employee_id)
-                    ->where('checklist_id', '=', $checklist_id)
-                    ->first();
-        $checklist_item_info = DB::table('checklists')
-                    ->where('id', '=', $checklist_id)
-                    ->first();
+        $checklist_item = Checklist_Employee::where('employee_id', '=', $employee_id)
+                                            ->where('checklist_id', '=', $checklist_id)
+                                            ->first();
+        $checklist_item_info = Checklist::where('id', '=', $checklist_id)->first();
 
         return View::make('employee_checklists_delete')
                 ->with('employee', $employee)
@@ -614,10 +612,8 @@ class EmployeeController extends BaseController {
         $checklist_created_at = Input::get('checklist_created_at');
         
         try {
-            $checklist_item = DB::table('checklist_employee')
-                        ->where('employee_id', '=', $employee_id)
-                        ->where('checklist_id', '=', $checklist_id)
-                        ->where('created_at', '=', $checklist_created_at);
+            $checklist_item = Checklist_Employee::where('employee_id', '=', $employee_id)
+                                                ->where('checklist_id', '=', $checklist_id);
         }
         catch(exception $e) {
             return Redirect::action('EmployeeController@getChecklists', ['employee_id' => $employee_id])
