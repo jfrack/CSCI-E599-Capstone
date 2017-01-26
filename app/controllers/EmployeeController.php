@@ -455,12 +455,12 @@ class EmployeeController extends BaseController {
             $checklist_selection[] = $item->name;
         }
 
-        
-        # TODO - breaks if checklist item is removed from manager
         # start array at index 1 instead of 0
+        /*
         array_unshift($checklist_selection, 'phoney');
         unset($checklist_selection[0]);    
-                    
+        */  
+
         return View::make('employee_checklists')
                 ->with('employee', $employee)
                 ->with('checklist_employee', $checklist_employee)
@@ -496,7 +496,8 @@ class EmployeeController extends BaseController {
 
         $employee_id = Input::get('employee_id');
         $checklist_selection = Input::get('checklist_selection');
-        $checklist_id = $checklist_selection;
+        // get first checklist id that has not been deleted and add the drop down selection offset
+        $checklist_id = Checklist::first()->pluck('id') + $checklist_selection;
         $already_exists = Checklist_Employee::where('employee_id', '=', $employee_id)
                                             ->where('checklist_id', '=', $checklist_id)
                                             ->first();
