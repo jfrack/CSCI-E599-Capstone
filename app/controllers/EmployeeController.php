@@ -385,6 +385,15 @@ class EmployeeController extends BaseController {
     }
 
     /*
+    * Display add checklists item page
+    * GET: http://localhost/employee/checklists_manager/add
+    */
+    public function getChecklistsManagerAdd() {
+                    
+        return View::make('employee_checklists_manager_add');
+    }
+
+    /*
     * Display delete checklists item confirmation page
     * GET: http://localhost/employee/checklists_manager/delete/$checklist_id
     */

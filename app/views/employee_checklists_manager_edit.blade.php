@@ -12,7 +12,7 @@
 	{{ Form::open(array('url' => '/employee/checklists_manager/edit/$checklist_id')) }}
 	<div class="display_box">
 		
-		<h4><legend>Checklist Item Edit</legend></h4>
+		<legend><h2>Edit Item</h2></legend>
 
 		<div class='form-group row'>
 			{{ Form::label('item', 'Item', 'class=col-xs-2 col-form-label') }}

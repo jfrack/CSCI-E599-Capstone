@@ -19,7 +19,7 @@
 			{{ Form::close() }}
 			--}}
 
-			<a href="" class="btn btn-primary">Add Item</a>
+			<a href="/employee/checklists_manager/add" class="btn btn-primary">Add Item</a>
 			<br><br>
 		
 			<table id="employeeChecklistsManagerTable" class="table table-bordered table-hover">
